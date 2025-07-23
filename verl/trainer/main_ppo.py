@@ -67,13 +67,12 @@ class RewardManager():
             # select rm_score
             data_source = data_item.non_tensor_batch['data_source']
             compute_score_fn = _select_rm_score_fn(data_source)
+            format_score_fn = qa_em.format_reward
 
             score_em, score_f1 = compute_score_fn(solution_str=sequences_str, ground_truth=ground_truth, format_score=self.format_score)
+            format_reward = format_score_fn(sequences_str)
 
-            if self.reward_function == 'em':
-                reward_tensor[i, valid_response_length - 1] = score_em
-            elif self.reward_function == 'f1':
-                reward_tensor[i, valid_response_length - 1] = score_f1
+            reward_tensor[i, valid_response_length - 1] = score_em * 0.9 + format_reward * 0.1
 
             if data_source not in already_print_data_sources:
                 already_print_data_sources[data_source] = 0

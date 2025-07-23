@@ -140,7 +140,8 @@ def compute_advantage(data: DataProto, adv_estimator, gamma=1.0, lam=1.0, num_re
         responses = data.batch['responses']
         response_length = responses.size(-1)
         attention_mask = data.batch['attention_mask']
-        response_mask = attention_mask[:, -response_length:]
+        response_mask = data.batch['loss_mask'] if 'loss_mask' in data.batch else attention_mask[:, -response_length:]
+        print(f"token_level_rewards shape: {token_level_rewards.shape}, response_mask shape: {response_mask.shape}, index shape: {index.shape}")
         advantages, returns = core_algos.compute_grpo_outcome_advantage(token_level_rewards=token_level_rewards,
                                                                         eos_mask=response_mask,
                                                                         index=index)
@@ -454,7 +455,7 @@ class RayPPOTrainer(object):
         data_source_lst_f1 = []
 
         gen_config = GenerationConfig(
-            max_turns=self.config.trainer.max_turns,
+            max_turns=10,
             max_start_length=self.config.data.max_start_length,
             max_prompt_length=self.config.data.max_prompt_length,
             max_response_length=self.config.data.max_response_length,
@@ -462,10 +463,10 @@ class RayPPOTrainer(object):
             num_gpus=self.config.trainer.n_gpus_per_node,
             no_think_rl=self.config.algorithm.no_think_rl,
             llm_ip=self.config.retriever.llm_ip,
-            retriever_ip=self.config.retriever.retriever_ip,
             start_threshold=self.config.retriever.start_threshold,
             end_threshold=self.config.retriever.end_threshold,
-            topk = self.config.retriever.topk
+            topk = 3,
+            temperature=0.0,
         )
 
         # Agent config preparation
@@ -718,7 +719,7 @@ class RayPPOTrainer(object):
 
         # Agent config preparation
         gen_config = GenerationConfig(
-            max_turns=self.config.trainer.max_turns,
+            max_turns=10,
             max_start_length=self.config.data.max_start_length,
             max_prompt_length=self.config.data.max_prompt_length,
             max_response_length=self.config.data.max_response_length,
@@ -726,11 +727,10 @@ class RayPPOTrainer(object):
             num_gpus=self.config.trainer.n_gpus_per_node,
             no_think_rl=self.config.algorithm.no_think_rl,
             llm_ip=self.config.retriever.llm_ip,
-            retriever_ip=self.config.retriever.retriever_ip,
             start_threshold=self.config.retriever.start_threshold,
             end_threshold=self.config.retriever.end_threshold,
-            temperature=self.config.retriever.temperature,
-            topk = self.config.retriever.topk
+            topk = 3,
+            temperature=1.0,
         )
 
         generation_manager = LLMGenerationManager(
@@ -778,6 +778,7 @@ class RayPPOTrainer(object):
                         for key in final_gen_batch_output.batch.keys():
                             final_gen_batch_output.batch[key] = final_gen_batch_output.batch[key].long()
 
+                        print(final_gen_batch_output.meta_info)
                         with torch.no_grad():
                             output = self.actor_rollout_wg.compute_log_prob(final_gen_batch_output)
                             final_gen_batch_output = final_gen_batch_output.union(output)
@@ -791,6 +792,12 @@ class RayPPOTrainer(object):
                     # Note that this breaks the order of data inside the batch.
                     # Please take care when you implement group based adv computation such as GRPO and rloo
                     self._balance_batch(batch, metrics=metrics)
+                    
+                    batch.batch["information_loss_mask"] = self.create_information_loss_mask(batch)[:, -self.config.data.max_response_length:].bool()
+                    batch.batch["response_mask"] = batch.batch["attention_mask"][:, -self.config.data.max_response_length:].bool()
+                    batch.batch["loss_mask"] = batch.batch["information_loss_mask"] & batch.batch["response_mask"]
+                    batch.batch["loss_mask"] = batch.batch["loss_mask"][:, -self.config.data.max_response_length:].bool()
+                    print(f"loss_mask shape: {batch.batch['loss_mask'].shape}, loss_mask sum: {batch.batch['loss_mask'].sum()}")
 
                     # compute global_valid tokens
                     batch.meta_info['global_token_num'] = torch.sum(batch.batch['attention_mask'], dim=-1).tolist()
@@ -881,17 +888,33 @@ class RayPPOTrainer(object):
                 if self.global_steps >= self.total_training_steps:
                     return
     
-    def _create_loss_mask(self, batch, metrics):
-        """Create loss mask for state tokens."""
-        response_length = batch.batch['responses'].shape[-1]
-        response_mask = batch.batch['attention_mask'][:, -response_length:]
+    def create_information_loss_mask(self, batch: DataProto):
+        import re
+        response = batch.batch["responses"]
+        info_mask = torch.ones_like(response, dtype=torch.bool)  # Initialize to True (include all tokens)
+        responses_str = self.tokenizer.batch_decode(response, skip_special_tokens=True)
+        pad_id = self.tokenizer.pad_token_id
+        
+        # Process each response in the batch
+        for i, response_str in enumerate(responses_str):
+            # Find content within <information></information> tags
+            pattern = r'<information>(.*?)</information>'
+            matches = re.findall(pattern, response_str)
+            
+            if matches:
+                # Get the start and end positions of the information content
+                for match in matches:
+                    start_pos = response_str.find(f'<information>{match}</information>')
+                    end_pos = start_pos + len(f'<information>{match}</information>')
+                    
+                    # Convert character positions to token positions
+                    tokens = self.tokenizer.encode(response_str[:start_pos], add_special_tokens=False)
+                    start_token = len(tokens)
+                    tokens = self.tokenizer.encode(response_str[:end_pos], add_special_tokens=False)
+                    end_token = len(tokens)
+                    
+                    # Set the mask to False for the information content (exclude from loss)
+                    info_mask[i, start_token:end_token] = False
 
-        loss_mask = batch.batch['info_mask'][:, -response_length:]
-        batch.batch['loss_mask'] = loss_mask
+        return info_mask
 
-        metrics.update({
-            'state_tokens/total': loss_mask.sum().item(),
-            'state_tokens/coverage': (loss_mask.sum() / response_mask.sum()).item(),
-        })
-
-        return batch, metrics

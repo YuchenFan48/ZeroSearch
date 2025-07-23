@@ -1,0 +1,1264 @@
+Using LocalLogger is deprecated. The constructor API will change
+[36m(pid=7800)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=7800)[0m No module named 'vllm._version'
+[36m(pid=7800)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=8008)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=8008)[0m No module named 'vllm._version'
+[36m(pid=8008)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=8013)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=8013)[0m No module named 'vllm._version'
+[36m(pid=8013)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(WorkerDict pid=8008)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009
+[36m(WorkerDict pid=8008)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')
+[36m(WorkerDict pid=8013)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(WorkerDict pid=7800)[0m Model config after override: LlamaConfig {
+[36m(WorkerDict pid=7800)[0m   "_name_or_path": "/fs-computility/mabasic/shared/models/Llama-3.1-8B-Instruct",
+[36m(WorkerDict pid=7800)[0m   "architectures": [
+[36m(WorkerDict pid=7800)[0m     "LlamaForCausalLM"
+[36m(WorkerDict pid=7800)[0m   ],
+[36m(WorkerDict pid=7800)[0m   "attention_bias": false,
+[36m(WorkerDict pid=7800)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=7800)[0m   "bos_token_id": 128000,
+[36m(WorkerDict pid=7800)[0m   "eos_token_id": 128009,
+[36m(WorkerDict pid=7800)[0m   "head_dim": 128,
+[36m(WorkerDict pid=7800)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=7800)[0m   "hidden_size": 4096,
+[36m(WorkerDict pid=7800)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=7800)[0m   "intermediate_size": 14336,
+[36m(WorkerDict pid=7800)[0m   "max_position_embeddings": 131072,
+[36m(WorkerDict pid=7800)[0m   "mlp_bias": false,
+[36m(WorkerDict pid=7800)[0m   "model_type": "llama",
+[36m(WorkerDict pid=7800)[0m   "num_attention_heads": 32,
+[36m(WorkerDict pid=7800)[0m   "num_hidden_layers": 32,
+[36m(WorkerDict pid=7800)[0m   "num_key_value_heads": 8,
+[36m(WorkerDict pid=7800)[0m   "pad_token_id": 128009,
+[36m(WorkerDict pid=7800)[0m   "pretraining_tp": 1,
+[36m(WorkerDict pid=7800)[0m   "rms_norm_eps": 1e-05,
+[36m(WorkerDict pid=7800)[0m   "rope_scaling": {
+[36m(WorkerDict pid=7800)[0m     "factor": 8.0,
+[36m(WorkerDict pid=7800)[0m     "high_freq_factor": 4.0,
+[36m(WorkerDict pid=7800)[0m     "low_freq_factor": 1.0,
+[36m(WorkerDict pid=7800)[0m     "original_max_position_embeddings": 8192,
+[36m(WorkerDict pid=7800)[0m     "rope_type": "llama3"
+[36m(WorkerDict pid=7800)[0m   },
+[36m(WorkerDict pid=7800)[0m   "rope_theta": 500000.0,
+[36m(WorkerDict pid=7800)[0m   "tie_word_embeddings": false,
+[36m(WorkerDict pid=7800)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=7800)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=7800)[0m   "use_cache": true,
+[36m(WorkerDict pid=7800)[0m   "vocab_size": 128256
+[36m(WorkerDict pid=7800)[0m }
+[36m(WorkerDict pid=7800)[0m
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  7.26it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  7.42it/s]
+[36m(WorkerDict pid=7800)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=7800)[0m LlamaForCausalLM contains 8.03B parameters
+[36m(WorkerDict pid=7800)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f453f6ae940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f453f6ae820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=8007)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=8011)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f40f1a05940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f40f1a05820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(WorkerDict pid=7800)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in LlamaForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(pid=8011)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:[32m [repeated 5x across cluster][0m
+[36m(pid=8011)[0m No module named 'vllm._version'[32m [repeated 5x across cluster][0m
+[36m(pid=8011)[0m   from vllm.version import __version__ as VLLM_VERSION[32m [repeated 5x across cluster][0m
+[36m(WorkerDict pid=7800)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009[32m [repeated 8x across cluster][0m
+[36m(WorkerDict pid=7800)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')[32m [repeated 8x across cluster][0m
+[36m(WorkerDict pid=8011)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.[32m [repeated 7x across cluster][0m
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][32m [repeated 7x across cluster][0m
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  5.61it/s][32m [repeated 23x across cluster][0m
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  5.80it/s][32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7800)[0m Model config after override: LlamaConfig {
+[36m(WorkerDict pid=7800)[0m   "_name_or_path": "/fs-computility/mabasic/shared/models/Llama-3.1-8B-Instruct",
+[36m(WorkerDict pid=7800)[0m   "architectures": [
+[36m(WorkerDict pid=7800)[0m     "LlamaForCausalLM"
+[36m(WorkerDict pid=7800)[0m   ],
+[36m(WorkerDict pid=7800)[0m   "attention_bias": false,
+[36m(WorkerDict pid=7800)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=7800)[0m   "bos_token_id": 128000,
+[36m(WorkerDict pid=7800)[0m   "eos_token_id": 128009,
+[36m(WorkerDict pid=7800)[0m   "head_dim": 128,
+[36m(WorkerDict pid=7800)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=7800)[0m   "hidden_size": 4096,
+[36m(WorkerDict pid=7800)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=7800)[0m   "intermediate_size": 14336,
+[36m(WorkerDict pid=7800)[0m   "max_position_embeddings": 131072,
+[36m(WorkerDict pid=7800)[0m   "mlp_bias": false,
+[36m(WorkerDict pid=7800)[0m   "model_type": "llama",
+[36m(WorkerDict pid=7800)[0m   "num_attention_heads": 32,
+[36m(WorkerDict pid=7800)[0m   "num_hidden_layers": 32,
+[36m(WorkerDict pid=7800)[0m   "num_key_value_heads": 8,
+[36m(WorkerDict pid=7800)[0m   "pad_token_id": 128009,
+[36m(WorkerDict pid=7800)[0m   "pretraining_tp": 1,
+[36m(WorkerDict pid=7800)[0m   "rms_norm_eps": 1e-05,
+[36m(WorkerDict pid=7800)[0m   "rope_scaling": {
+[36m(WorkerDict pid=7800)[0m     "factor": 8.0,
+[36m(WorkerDict pid=7800)[0m     "high_freq_factor": 4.0,
+[36m(WorkerDict pid=7800)[0m     "low_freq_factor": 1.0,
+[36m(WorkerDict pid=7800)[0m     "original_max_position_embeddings": 8192,
+[36m(WorkerDict pid=7800)[0m     "rope_type": "llama3"
+[36m(WorkerDict pid=7800)[0m   },
+[36m(WorkerDict pid=7800)[0m   "rope_theta": 500000.0,
+[36m(WorkerDict pid=7800)[0m   "tie_word_embeddings": false,
+[36m(WorkerDict pid=7800)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=7800)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=7800)[0m   "use_cache": true,
+[36m(WorkerDict pid=7800)[0m   "vocab_size": 128256
+[36m(WorkerDict pid=7800)[0m }
+[36m(WorkerDict pid=7800)[0m
+[36m(WorkerDict pid=8011)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in LlamaForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=8011)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=8011)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')[32m [repeated 7x across cluster][0m
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][32m [repeated 8x across cluster][0m
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:15,  5.22s/it][32m [repeated 22x across cluster][0m
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  4.37it/s][32m [repeated 7x across cluster][0m
+Loading checkpoint shards:  50%|█████     | 2/4 [00:10<00:10,  5.17s/it]
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:15<00:05,  5.13s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:16<00:00,  4.18s/it]
+[36m(WorkerDict pid=7800)[0m LlamaForCausalLM contains 8.03B parameters
+[36m(WorkerDict pid=7800)[0m Actor use_remove_padding=True[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7800)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f453f6ae940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f453f6ae820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=8008)[0m wrap_policy: functools.partial(<function _or_policy at 0x7efb3cc85940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7efb3cc85820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=8008)[0m Total steps: 13250, num_warmup_steps: 265
+[36m(WorkerDict pid=7800)[0m Before building vllm rollout, memory allocated (GB): 3.7394137382507324, memory reserved (GB): 4.12890625
+[36m(WorkerDict pid=8009)[0m WARNING 07-22 02:34:27 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(WorkerDict pid=8011)[0m Actor use_remove_padding=True[32m [repeated 8x across cluster][0m
+[36m(WorkerDict pid=8011)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f40f1a05940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f40f1a05820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])[32m [repeated 6x across cluster][0m
+[36m(WorkerDict pid=8009)[0m local rank 0
+[36m(WorkerDict pid=7800)[0m Total steps: 13250, num_warmup_steps: 265[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_1
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_2
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_3
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_4
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_1
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_2
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_3
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=8008)[0m
+[36m(WorkerDict pid=8008)[0m t-20250722103052-pxmnr-worker-0:8008:8752 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_4
+[36m(WorkerDict pid=8008)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8012)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8007)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8009)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8010)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8013)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=8011)[0m
+[36m(WorkerDict pid=7800)[0m before init cache memory allocated: 20.117765632GB, reserved: 20.208156672GB
+[36m(WorkerDict pid=7800)[0m after init cache memory allocated: 63.623183872GB, reserved: 63.761809408GB
+[36m(WorkerDict pid=7800)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=7800)[0m   warnings.warn(
+[36m(WorkerDict pid=7800)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 4096, 'detokenize': False, 'temperature': 1.0, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(WorkerDict pid=7800)[0m After building vllm rollout, memory allocated (GB): 44.2961802482605, memory reserved (GB): 59.3828125
+[36m(WorkerDict pid=7800)[0m After building sharding manager, memory allocated (GB): 44.2961802482605, memory reserved (GB): 59.3828125
+Training:   0%|          | 0/13250 [00:00<?, ?it/s]
+epoch 0, step 1
+[2025-07-22 02:36:18,728][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:18,876][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:19,326][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:19,825][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:19,909][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:20,249][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:21,136][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:21,175][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:21,436][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:22,441][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:22,655][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:22,768][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:23,013][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:23,029][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:23,624][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:24,649][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:24,665][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:25,593][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:25,678][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:26,830][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:26,869][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:27,088][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:27,646][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:27,763][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:27,991][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:28,631][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:28,903][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:29,372][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:30,131][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:30,505][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:30,785][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:31,147][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:32,135][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:33,093][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:33,243][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:33,989][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:34,203][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:34,203][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:34,372][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:34,920][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:35,089][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:35,951][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:36,149][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:37,027][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:37,253][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:37,918][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:38,021][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:38,021][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:38,768][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:39,319][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:40,885][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:41,653][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:41,902][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:42,119][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:43,224][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:44,310][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:44,510][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:44,597][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:44,636][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:45,365][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:46,231][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:46,231][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:46,461][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:46,673][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:46,902][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:47,001][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:47,340][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:48,779][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:49,006][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:49,284][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:49,354][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:49,354][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:49,524][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:50,507][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:51,463][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:51,790][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:52,141][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:53,030][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:53,212][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:53,377][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:53,528][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:53,852][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:54,594][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:55,535][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:55,750][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:56,031][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:56,352][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:56,847][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:56,885][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:57,031][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:57,624][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:57,741][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:57,841][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:57,889][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:58,832][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:36:59,045][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:00,629][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:00,826][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:00,864][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:00,901][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:01,023][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:01,336][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:01,467][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:02,042][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:02,829][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:03,424][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:04,126][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:04,695][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:04,812][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:05,109][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:05,110][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:05,159][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:05,946][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:05,961][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:06,463][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:06,502][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:06,781][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:06,906][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:07,652][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:08,273][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:08,375][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:08,422][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:08,651][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:09,512][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:12,663][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:37:18,589][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:05,622][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:05,691][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:06,029][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:06,337][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:06,601][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:06,786][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:07,246][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:07,294][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:07,553][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:08,029][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:08,610][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:08,892][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:09,235][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:09,275][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:10,748][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:11,136][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:11,333][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:11,517][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:11,680][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:12,260][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:12,819][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:12,820][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:13,738][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:14,386][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:15,410][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:15,951][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:18,084][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:18,224][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:18,876][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:19,707][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:21,516][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:21,556][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:21,721][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:23,633][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:24,344][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:24,463][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:25,062][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:25,119][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:25,694][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:25,768][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:26,349][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:26,488][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:26,758][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:27,496][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:27,681][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:28,249][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:28,441][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:28,490][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:29,725][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:29,972][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:30,137][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:30,638][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:30,724][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:32,266][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:32,279][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:32,327][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:33,415][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:33,984][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:34,121][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:34,612][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:34,845][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:36,346][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:37,354][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:37,908][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:38,015][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:39,009][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:40,147][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:40,250][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:40,266][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:40,656][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:40,843][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:41,940][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:42,195][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:42,563][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:42,785][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:43,087][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:43,163][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:43,480][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:44,040][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:44,170][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:44,737][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:45,928][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:47,032][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:47,872][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:48,037][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:49,986][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:50,415][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:39:51,030][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:39,214][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:39,257][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:39,762][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:40,315][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:41,262][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:42,418][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:43,243][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:43,701][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:44,793][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:45,468][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:45,573][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:45,725][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:46,058][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:47,373][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:47,606][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:48,263][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:48,416][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:48,608][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:48,646][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:49,172][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:49,426][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:49,472][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:49,677][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:49,726][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:50,015][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:50,392][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:52,660][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:53,650][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:54,690][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:54,856][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:56,131][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:56,147][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:56,207][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:58,760][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:58,803][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:59,750][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:41:59,823][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:43:51,764][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:43:51,981][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:43:53,660][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:43:54,213][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:43:55,319][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:43:56,693][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:43:57,053][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:43:59,255][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:43:59,272][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:00,018][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:00,325][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:02,375][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:04,281][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:05,164][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:05,845][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:08,310][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:08,456][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:08,528][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:09,046][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:09,473][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:10,775][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:10,831][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:10,831][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:10,831][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:11,104][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:11,142][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:11,833][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:12,416][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:12,616][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:13,250][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:13,457][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:13,665][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:13,777][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:13,795][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:13,871][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:15,548][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:16,958][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:18,615][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:19,357][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:19,794][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:22,486][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:23,241][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:44:24,016][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:11,746][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:12,793][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:12,794][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:12,909][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:13,100][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:13,139][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:14,731][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:15,224][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:15,765][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:16,171][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:16,656][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:17,376][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:17,569][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:17,741][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:17,912][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:18,295][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:19,136][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:19,554][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:19,892][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:20,222][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:20,921][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:21,033][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:21,240][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:21,711][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:26,416][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:29,146][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:46:30,838][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+{'micro_batch_size': 16, 'max_token_len': 16384, 'use_dynamic_bsz': False, 'temperature': 1.0}
+loss_mask shape: torch.Size([128, 4096]), loss_mask sum: 106674
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: what was the last movie clint eastwood directed?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<search>Clint Eastwood latest movie directed</search>
+<information>
+1. Clint Eastwood's latest film as a director is "Cry Macho" (2021), a drama film based on the 1975 novel of the same name by N. Richard Nash.
+2. The film received mixed reviews from critics but was a commercial success.
+3. Clint Eastwood also starred in the film, playing the lead role of Mike Milo.
+</information>
+<search>Cry Macho 2021 Clint Eastwood release date</search>
+<information>
+1. Cry Macho was released in the United States on September 17, 2021.
+2. The film was initially set to be released in theaters but was later released on streaming platform HBO Max.
+3. The release date in some countries was different from the US release date.
+</information>
+<answer>Cry Macho</answer>
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: Joseph Wolfe is the son of the late conductor of which orchestra founded in 1904?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think> I know a famous orchestra founded in 1904, but I'm not sure if it's related to the late conductor or the son. I need to find the orchestra first.</think>
+
+<search> Orchestra founded in 1904 </search>
+<information>
+1.  The Philadelphia Orchestra was founded in 1904.
+2.  The Pittsburgh Symphony Orchestra was founded in 1896, but it was reorganized in 1904.
+3.  The New York Philharmonic was founded in 1842, but it was reorganized in 1904.
+</information>
+<search> Joseph Wolfe son of conductor of Philadelphia Orchestra </search>
+<information>
+1.  Joseph Wolfe is the son of the late conductor of the Philadelphia Orchestra,
+2.  but I couldn't find any information that confirms Joseph Wolfe's father was a conductor of the Philadelphia Orchestra.
+</information>
+<think> There are multiple orchestras founded in 1904, but I think I have the answer: the Pittsburgh Symphony Orchestra. I will provide it.</think>
+
+<answer> Pittsburgh Symphony Orchestra.
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: who does bob's voice from bob's burgers?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>To find the voice actor of Bob Belcher from Bob's Burgers, I should look for the main character of the show and the actor who voices him.</think>
+
+<search>voice actor of main character in Bob's Burgers</search>
+<information>
+1. Bob Belcher is the main character in the animated TV series Bob's Burgers.
+2. The main character in the show is voiced by H. Jon Benjamin.
+3. H. Jon Benjamin is an American actor and comedian who has provided voices for several animated TV shows and films.
+</information>
+
+<answer>H. Jon Benjamin</answer>
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: Sir John Piers, 6th Baronet is known for being the subject of an early poem by a poet who passed away in which year?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>To find the information, I need to identify the poet and the year they passed away. This will allow me to find the poem and then determine if it's related to Sir John Piers, 6th Baronet.</think>
+
+<search>poet who wrote early poem about Sir John Piers 6th Baronet</search>
+<information>
+1. The poet who wrote the poem is Thomas Gray. - Wikipedia
+2. Thomas Gray - Poetry Foundation
+3. Thomas Gray - Britannica
+</information>
+<think>Since Thomas Gray is the poet who wrote the early poem about Sir John Piers, 6th Baronet, the next step is to find the year of Thomas Gray's death.</think>
+
+<search>year Thomas Gray died</search>
+<information>
+1. Thomas Gray - Wikipedia
+2. Thomas Gray died in 1771 - Poetry Foundation
+3. Thomas Gray - Britannica
+</information>
+<think>With the year of Thomas Gray's death determined, the next step is to provide the correct answer format.</think>
+
+<answer>1771</answer>
+--------------------------------
+Golden answers: ['Next Generation']
+Extracted answer: Beijing
+Solution string: system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: What publication did write Tim Rogers write for between January 1995 and January 2002?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>To find out which publication Tim Rogers wrote for, I need to identify publications that existed between January 1995 and January 2002.</think>
+
+<search>Publications existing between January 1995 and January 2002</search>
+<information>
+1. Wikipedia - List of defunct magazines: This page lists several magazines that ceased publication between 1995 and 2002.
+2. Wikipedia - List of defunct newspapers: This page lists several newspapers that ceased publication between 1995 and 2002.
+3. IMDb - List of video game magazines: This page lists several video game magazines that were active during the 1990s and early 2000s.
+</information>
+<search>Tim Rogers video game journalist</search>
+<information>
+1. Wikipedia - Tim Rogers (journalist): This page mentions that Tim Rogers was a video game journalist who worked at Electronic Gaming Monthly (EGM) and 1UP.com.
+2. IGN - Tim Rogers: This page mentions that Tim Rogers worked at 1UP.com.
+3. Game Informer - Tim Rogers: This page mentions that Tim Rogers wrote for Game Informer.
+</information>
+<information>
+Based on the available information, Tim Rogers wrote for 1UP.com, Game Informer, and Electronic Gaming Monthly (EGM) between January 1995 and January 2002.</information>
+
+The final answer is: 1UP.com, Game Informer, and Electronic Gaming Monthly (EGM).
+token_level_rewards shape: torch.Size([128, 4096]), response_mask shape: torch.Size([128, 4096]), index shape: (128,)
+[36m(WorkerDict pid=7800)[0m   with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+[36m(WorkerDict pid=8009)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=8009)[0m   warnings.warn([32m [repeated 7x across cluster][0m
+step:1 - global_seqlen/min:12304.000 - global_seqlen/max:21393.000 - global_seqlen/minmax_diff:9089.000 - global_seqlen/balanced_min:16114.000 - global_seqlen/balanced_max:18461.000 - global_seqlen/mean:16546.875 - actor/kl_loss:0.000 - actor/kl_coef:0.001 - actor/entropy_loss:3.737 - actor/pg_loss:0.034 - actor/pg_clipfrac:0.000 - actor/ppo_kl:0.000 - actor/grad_norm:0.197 - mfu/actor:0.261 - actor/lr:0.000 - critic/score/mean:0.183 - critic/score/max:0.900 - critic/score/min:0.000 - critic/rewards/mean:0.183 - critic/rewards/max:0.900 - critic/rewards/min:0.000 - critic/advantages/mean:-0.008 - critic/advantages/max:0.707 - critic/advantages/min:-0.707 - critic/returns/mean:-0.008 - critic/returns/max:0.707 - critic/returns/min:-0.707 - response_length/turns:2.156 - response_length/mean:837.164 - response_length/max:4096.000 - response_length/min:93.000 - response_length/clip_ratio:0.125 - prompt_length/mean:197.016 - prompt_length/max:254.000 - prompt_length/min:188.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:719.099 - timing_s/ref:2.871 - timing_s/adv:0.105 - timing_s/update_actor:15.659 - timing_s/step:740.831 - timing_per_token_ms/ref:0.022 - timing_per_token_ms/gen:6.711 - timing_per_token_ms/adv:0.001 - timing_per_token_ms/update_actor:0.118
+Training:   0%|          | 1/13250 [12:20<2726:51:04, 740.94s/it]
+epoch 0, step 2
+[2025-07-22 02:48:39,281][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:39,469][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:39,539][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:39,904][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:40,035][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:40,472][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:40,649][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:40,688][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:40,871][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:41,546][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:41,613][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:42,079][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:42,118][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:42,773][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:43,332][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:43,883][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:44,407][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:44,861][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:45,073][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:45,299][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:45,967][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:46,478][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:46,854][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:46,938][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:47,591][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:47,834][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:48,014][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:48,466][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:48,876][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:49,679][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:50,201][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:50,256][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:50,665][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:50,846][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:51,199][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:52,467][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:52,921][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:52,989][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:53,092][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:53,878][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:54,059][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:54,239][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:54,287][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:54,412][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:54,458][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:54,597][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:56,294][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:56,363][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:56,511][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:56,834][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:57,802][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:58,252][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:58,255][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:58,280][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:58,713][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:59,411][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:48:59,721][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:00,614][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:00,861][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:00,956][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:01,231][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:01,741][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:02,205][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:02,927][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:03,724][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:03,809][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:04,021][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:04,340][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:05,116][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:06,845][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:07,189][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:07,630][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:07,911][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:08,304][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:09,183][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:10,151][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:10,911][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:11,094][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:11,670][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:12,195][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:13,407][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:14,359][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:14,535][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:14,811][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:14,896][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:15,359][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:17,157][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:17,344][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:17,640][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:18,004][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:18,020][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:18,244][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:19,234][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:19,995][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:20,112][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:20,293][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:20,731][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:21,747][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:22,479][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:22,619][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:22,635][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:22,772][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:22,857][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:22,858][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:24,119][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:24,604][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:24,643][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:26,194][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:26,504][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:27,263][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:27,264][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:28,749][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:29,374][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:29,513][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:30,651][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:30,820][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:31,095][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:31,437][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:32,230][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:32,243][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:32,405][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:33,914][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:33,915][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:34,017][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:38,764][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:38,896][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:49:39,829][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:25,083][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:25,501][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:25,907][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:25,954][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:26,213][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:26,519][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:26,809][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:26,910][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:27,168][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:27,992][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:28,746][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:29,980][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:30,799][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:30,932][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:31,155][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:31,643][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:31,817][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:32,088][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:32,907][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:33,324][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:33,603][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:33,878][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:34,286][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:34,502][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:35,041][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:35,820][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:36,084][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:36,201][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:37,979][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:38,499][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:38,500][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:38,574][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:38,975][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:39,396][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:39,722][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:40,163][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:40,213][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:40,969][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:43,614][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:43,654][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:43,855][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:43,959][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:44,242][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:44,827][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:45,073][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:45,563][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:45,686][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:47,165][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:48,044][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:48,299][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:48,732][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:49,092][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:49,183][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:49,274][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:50,436][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:50,826][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:51,532][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:52,666][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:52,958][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:53,008][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:53,365][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:54,134][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:54,679][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:54,971][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:55,164][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:56,285][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:56,344][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:56,758][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:56,817][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:51:57,904][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:52:03,688][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:52:08,538][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:04,350][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:05,135][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:05,499][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:05,854][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:06,657][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:07,028][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:07,482][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:07,968][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:08,336][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:09,275][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:09,686][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:10,216][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:10,769][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:11,186][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:11,474][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:14,752][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:16,709][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:16,985][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:19,282][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:19,298][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:20,772][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:20,949][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:20,966][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:23,444][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:23,687][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:24,312][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:24,542][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:26,392][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:26,742][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:28,421][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:28,951][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:29,313][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:30,356][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:32,408][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:54:33,058][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:21,956][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:23,357][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:23,461][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:24,177][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:24,378][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:24,940][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:25,288][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:25,399][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:26,333][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:26,425][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:26,718][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:26,944][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:30,714][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:30,789][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:31,662][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:33,141][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:33,304][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:33,375][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:33,974][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:35,195][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:37,099][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:38,514][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:38,676][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:39,242][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:39,700][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:39,877][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:39,877][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:40,111][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:41,740][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:56:43,476][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:34,932][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:35,191][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:35,502][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:35,635][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:35,707][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:36,281][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:36,574][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:37,983][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:39,001][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:39,797][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:39,812][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:40,556][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:41,108][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:42,134][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:42,289][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:42,792][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:42,869][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:43,675][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:45,319][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:45,356][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:46,609][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:48,866][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:49,431][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:51,749][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:55,251][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:58:57,915][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 02:59:01,379][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+{'micro_batch_size': 16, 'max_token_len': 16384, 'use_dynamic_bsz': False, 'temperature': 1.0}
+loss_mask shape: torch.Size([128, 4096]), loss_mask sum: 97997
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: Are Károly Makk and Marco Bellocchio both film directors?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>Let's start by reasoning about Károly Makk. I know he's a Hungarian name, but I don't know much about him.</think>
+
+<search>Károly Makk profession</search>
+<information>
+1. Károly Makk - Wikipedia: Károly Makk was a Hungarian film director and screenwriter.
+2. IMDb: Károly Makk - Biography: Károly Makk was a Hungarian film director and screenwriter.
+3. Hungarian Film Institute: Károly Makk - Biography: Károly Makk was a Hungarian film director and screenwriter.
+</information>
+<answer>Yes</answer>
+
+<search>Marco Bellocchio profession</search>
+<information>
+1. Marco Bellocchio - Wikipedia: Marco Bellocchio is an Italian film director, screenwriter, actor, and poet.
+2. IMDb: Marco Bellocchio - Biography: Marco Bellocchio is an Italian film director, screenwriter, actor, and poet.
+3. Italian National Film Archive: Marco Bellocchio - Biography: Marco Bellocchio is an Italian film director, screenwriter, actor, and poet.
+</information>
+<answer>Yes</answer>
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: who is the girl locked up in don't breathe?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>We need to identify the movie "Don't Breathe" and its plot to find out about the girl locked up.</think>
+
+<search>Don't Breathe movie plot</search>
+<information>
+1. Don't Breathe is a 2016 American horror-thriller film directed by Fede Alvarez and written by Alvarez and Rodo Sayagues. The film follows a group of friends who break into the house of a blind man, but their plan goes awry when they discover that the man is not as helpless as they thought.
+2. The film features a tense and suspenseful plot, with a focus on the cat-and-mouse game between the blind man and the intruders.
+3. The movie received positive reviews from critics, with many praising its tense atmosphere and strong performances.
+</information>
+<evaluation>
+From the above information, we cannot identify which girl is locked up in the movie "Don't Breathe". We need more context or information to determine this.
+</evaluation>
+
+<answer>Unknown (requires more context)</answer>
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: What country of origin does Charmed and Alyssa Milano have in common?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>To solve this problem, I need to find the country of origin for both Charmed and Alyssa Milano.</think>
+
+<search>Country of origin for Charmed</search>
+<information>
+1. Charmed is an American fantasy drama television series created by Constance M. Burge. - Wikipedia
+2. The show premiered on October 7, 1998, on The WB and was later moved to The CW. - IMDb
+3. The series is set in San Francisco, California. - TV Guide
+</information>
+<search>Country of origin for Alyssa Milano</search>
+<information>
+1. Alyssa Milano is an American actress, singer, and producer. - IMDb
+2. She was born in Brooklyn, New York, to a family of Italian-American descent. - Wikipedia
+3. Milano's family moved to New Jersey when she was a child. - Biography
+</information>
+<answer>United States</answer>
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: where can i find fifty shades of grey movie?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>To find the "Fifty Shades of Grey" movie, I should start by checking if it is a widely popular movie and available in various platforms. I will search for its availability on popular streaming services and movie platforms.</think>
+
+<search>Fifty Shades of Grey movie streaming</search>
+<information>
+1. Amazon Prime Video - The movie is available to stream on Amazon Prime Video.
+2. HBO Max - Fifty Shades of Grey is available to stream on HBO Max.
+3. YouTube Movies - You can rent or buy the movie on YouTube Movies.
+</information>
+<answer>Amazon Prime Video, HBO Max, YouTube Movies</answer>
+--------------------------------
+Golden answers: ['unsportsmanlike conduct']
+Extracted answer: Unsportsmanlike conduct
+Solution string: system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: what can you get a technical foul for?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>What are the possible reasons for a technical foul in sports? It could be related to rules, behaviors, or interactions with referees.</think>
+
+<search>What are the reasons for a technical foul in basketball?</search>
+<information>
+1. Wikipedia - In basketball, a technical foul is a foul that is called on a player or coach for unsportsmanlike conduct. This can include arguing with referees, using excessive profanity, or committing other forms of unsportsmanlike behavior. (Source: en.wikipedia.org)
+2. NBA - A technical foul can be called for a variety of reasons, including arguing with referees, using excessive profanity, or committing other forms of unsportsmanlike behavior. (Source: nba.com)
+3. Sports Illustrated - In basketball, a technical foul can be called for arguing with referees, using excessive profanity, or committing other forms of unsportsmanlike behavior. (Source: sportsillustrated.com)
+</information>
+<answer>Unsportsmanlike conduct</answer>
+token_level_rewards shape: torch.Size([128, 4096]), response_mask shape: torch.Size([128, 4096]), index shape: (128,)
+step:2 - global_seqlen/min:11066.000 - global_seqlen/max:25360.000 - global_seqlen/minmax_diff:14294.000 - global_seqlen/balanced_min:14607.000 - global_seqlen/balanced_max:15550.000 - global_seqlen/mean:15431.000 - actor/kl_loss:0.000 - actor/kl_coef:0.001 - actor/entropy_loss:0.585 - actor/pg_loss:0.183 - actor/pg_clipfrac:0.000 - actor/ppo_kl:0.000 - actor/grad_norm:0.173 - mfu/actor:0.422 - actor/lr:0.000 - critic/score/mean:0.162 - critic/score/max:0.900 - critic/score/min:0.000 - critic/rewards/mean:0.162 - critic/rewards/max:0.900 - critic/rewards/min:0.000 - critic/advantages/mean:-0.060 - critic/advantages/max:0.707 - critic/advantages/min:-0.707 - critic/returns/mean:-0.060 - critic/returns/max:0.707 - critic/returns/min:-0.707 - response_length/turns:1.969 - response_length/mean:767.953 - response_length/max:4096.000 - response_length/min:125.000 - response_length/clip_ratio:0.117 - prompt_length/mean:196.484 - prompt_length/max:254.000 - prompt_length/min:188.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:728.743 - timing_s/ref:2.170 - timing_s/adv:0.101 - timing_s/update_actor:8.165 - timing_s/step:742.529 - timing_per_token_ms/ref:0.018 - timing_per_token_ms/gen:7.414 - timing_per_token_ms/adv:0.001 - timing_per_token_ms/update_actor:0.066
+epoch 0, step 3
+[2025-07-22 03:01:01,366][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:01,501][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:03,292][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:03,572][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:03,722][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:04,142][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:04,275][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:04,409][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:04,735][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:05,554][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:05,815][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:05,933][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:06,098][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:06,245][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:07,994][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:08,067][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:08,468][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:08,905][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:09,264][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:09,350][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:09,773][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:09,891][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:09,940][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:11,296][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:12,737][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:12,785][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:13,039][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:13,500][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:13,707][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:14,795][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:15,312][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:15,581][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:15,718][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:15,921][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:16,225][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:16,493][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:17,420][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:17,468][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:17,859][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:17,875][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:17,955][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:18,421][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:19,625][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:19,762][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:20,054][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:20,498][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:20,538][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:20,606][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:21,415][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:21,454][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:22,020][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:22,719][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:22,735][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:23,395][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:23,435][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:23,867][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:23,984][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:24,000][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:24,616][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:25,293][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:25,636][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:25,785][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:26,015][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:26,742][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:26,989][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:27,239][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:27,389][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:27,861][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:28,416][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:29,315][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:29,596][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:29,699][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:30,179][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:30,995][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:31,426][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:31,594][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:31,812][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:31,980][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:32,029][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:32,773][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:32,813][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:33,015][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:33,378][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:33,394][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:33,680][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:33,912][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:33,981][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:34,473][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:34,885][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:35,297][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:35,677][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:36,288][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:36,304][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:36,695][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:37,490][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:38,091][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:38,130][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:38,282][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:39,157][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:39,614][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:40,035][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:40,490][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:40,640][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:40,999][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:41,454][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:42,041][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:42,057][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:42,408][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:42,559][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:43,516][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:43,638][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:43,654][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:43,691][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:43,866][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:43,954][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:45,088][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:45,685][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:45,685][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:45,884][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:45,996][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:46,587][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:47,152][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:47,373][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:47,883][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:48,205][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:48,292][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:01:49,128][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-22 03:02:00,362][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"

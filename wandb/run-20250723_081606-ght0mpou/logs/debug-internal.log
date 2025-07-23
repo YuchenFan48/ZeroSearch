@@ -1,0 +1,7 @@
+{"time":"2025-07-23T08:16:06.795601854Z","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/wandb/run-20250723_081606-ght0mpou/logs/debug-core.log"}
+{"time":"2025-07-23T08:16:07.425043817Z","level":"INFO","msg":"created new stream","id":"ght0mpou"}
+{"time":"2025-07-23T08:16:07.425094255Z","level":"INFO","msg":"stream: started","id":"ght0mpou"}
+{"time":"2025-07-23T08:16:07.425115279Z","level":"INFO","msg":"sender: started","stream_id":"ght0mpou"}
+{"time":"2025-07-23T08:16:07.425125961Z","level":"INFO","msg":"writer: Do: started","stream_id":"ght0mpou"}
+{"time":"2025-07-23T08:16:07.425117395Z","level":"INFO","msg":"handler: started","stream_id":"ght0mpou"}
+{"time":"2025-07-23T08:16:07.897963993Z","level":"INFO","msg":"Starting system monitor"}

@@ -1,0 +1,471 @@
+Using LocalLogger is deprecated. The constructor API will change
+[36m(pid=4537)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=4537)[0m No module named 'vllm._version'
+[36m(pid=4537)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=4743)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=4743)[0m No module named 'vllm._version'
+[36m(pid=4743)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=4745)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=4745)[0m No module named 'vllm._version'
+[36m(pid=4745)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(WorkerDict pid=4743)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009
+[36m(WorkerDict pid=4743)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')
+[36m(WorkerDict pid=4743)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+[36m(WorkerDict pid=4537)[0m Model config after override: LlamaConfig {
+[36m(WorkerDict pid=4537)[0m   "_name_or_path": "/fs-computility/mabasic/shared/models/Llama-3.1-8B-Instruct",
+[36m(WorkerDict pid=4537)[0m   "architectures": [
+[36m(WorkerDict pid=4537)[0m     "LlamaForCausalLM"
+[36m(WorkerDict pid=4537)[0m   ],
+[36m(WorkerDict pid=4537)[0m   "attention_bias": false,
+[36m(WorkerDict pid=4537)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=4537)[0m   "bos_token_id": 128000,
+[36m(WorkerDict pid=4537)[0m   "eos_token_id": 128009,
+[36m(WorkerDict pid=4537)[0m   "head_dim": 128,
+[36m(WorkerDict pid=4537)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=4537)[0m   "hidden_size": 4096,
+[36m(WorkerDict pid=4537)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=4537)[0m   "intermediate_size": 14336,
+[36m(WorkerDict pid=4537)[0m   "max_position_embeddings": 131072,
+[36m(WorkerDict pid=4537)[0m   "mlp_bias": false,
+[36m(WorkerDict pid=4537)[0m   "model_type": "llama",
+[36m(WorkerDict pid=4537)[0m   "num_attention_heads": 32,
+[36m(WorkerDict pid=4537)[0m   "num_hidden_layers": 32,
+[36m(WorkerDict pid=4537)[0m   "num_key_value_heads": 8,
+[36m(WorkerDict pid=4537)[0m   "pad_token_id": 128009,
+[36m(WorkerDict pid=4537)[0m   "pretraining_tp": 1,
+[36m(WorkerDict pid=4537)[0m   "rms_norm_eps": 1e-05,
+[36m(WorkerDict pid=4537)[0m   "rope_scaling": {
+[36m(WorkerDict pid=4537)[0m     "factor": 8.0,
+[36m(WorkerDict pid=4537)[0m     "high_freq_factor": 4.0,
+[36m(WorkerDict pid=4537)[0m     "low_freq_factor": 1.0,
+[36m(WorkerDict pid=4537)[0m     "original_max_position_embeddings": 8192,
+[36m(WorkerDict pid=4537)[0m     "rope_type": "llama3"
+[36m(WorkerDict pid=4537)[0m   },
+[36m(WorkerDict pid=4537)[0m   "rope_theta": 500000.0,
+[36m(WorkerDict pid=4537)[0m   "tie_word_embeddings": false,
+[36m(WorkerDict pid=4537)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=4537)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=4537)[0m   "use_cache": true,
+[36m(WorkerDict pid=4537)[0m   "vocab_size": 128256
+[36m(WorkerDict pid=4537)[0m }
+[36m(WorkerDict pid=4537)[0m
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  5.96it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.21it/s]
+[36m(WorkerDict pid=4537)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=4537)[0m LlamaForCausalLM contains 8.03B parameters
+[36m(WorkerDict pid=4537)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f16f309f940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f16f309f820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=4743)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=4744)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f19b700c940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f19b700c820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])[32m [repeated 3x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(WorkerDict pid=4537)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in LlamaForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(pid=4744)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=4744)[0m No module named 'vllm._version'
+[36m(pid=4744)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(WorkerDict pid=4537)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009[32m [repeated 4x across cluster][0m
+[36m(WorkerDict pid=4537)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')[32m [repeated 4x across cluster][0m
+[36m(WorkerDict pid=4744)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.[32m [repeated 3x across cluster][0m
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][32m [repeated 3x across cluster][0m
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  5.79it/s][32m [repeated 11x across cluster][0m
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  5.97it/s][32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=4537)[0m Model config after override: LlamaConfig {
+[36m(WorkerDict pid=4537)[0m   "_name_or_path": "/fs-computility/mabasic/shared/models/Llama-3.1-8B-Instruct",
+[36m(WorkerDict pid=4537)[0m   "architectures": [
+[36m(WorkerDict pid=4537)[0m     "LlamaForCausalLM"
+[36m(WorkerDict pid=4537)[0m   ],
+[36m(WorkerDict pid=4537)[0m   "attention_bias": false,
+[36m(WorkerDict pid=4537)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=4537)[0m   "bos_token_id": 128000,
+[36m(WorkerDict pid=4537)[0m   "eos_token_id": 128009,
+[36m(WorkerDict pid=4537)[0m   "head_dim": 128,
+[36m(WorkerDict pid=4537)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=4537)[0m   "hidden_size": 4096,
+[36m(WorkerDict pid=4537)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=4537)[0m   "intermediate_size": 14336,
+[36m(WorkerDict pid=4537)[0m   "max_position_embeddings": 131072,
+[36m(WorkerDict pid=4537)[0m   "mlp_bias": false,
+[36m(WorkerDict pid=4537)[0m   "model_type": "llama",
+[36m(WorkerDict pid=4537)[0m   "num_attention_heads": 32,
+[36m(WorkerDict pid=4537)[0m   "num_hidden_layers": 32,
+[36m(WorkerDict pid=4537)[0m   "num_key_value_heads": 8,
+[36m(WorkerDict pid=4537)[0m   "pad_token_id": 128009,
+[36m(WorkerDict pid=4537)[0m   "pretraining_tp": 1,
+[36m(WorkerDict pid=4537)[0m   "rms_norm_eps": 1e-05,
+[36m(WorkerDict pid=4537)[0m   "rope_scaling": {
+[36m(WorkerDict pid=4537)[0m     "factor": 8.0,
+[36m(WorkerDict pid=4537)[0m     "high_freq_factor": 4.0,
+[36m(WorkerDict pid=4537)[0m     "low_freq_factor": 1.0,
+[36m(WorkerDict pid=4537)[0m     "original_max_position_embeddings": 8192,
+[36m(WorkerDict pid=4537)[0m     "rope_type": "llama3"
+[36m(WorkerDict pid=4537)[0m   },
+[36m(WorkerDict pid=4537)[0m   "rope_theta": 500000.0,
+[36m(WorkerDict pid=4537)[0m   "tie_word_embeddings": false,
+[36m(WorkerDict pid=4537)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=4537)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=4537)[0m   "use_cache": true,
+[36m(WorkerDict pid=4537)[0m   "vocab_size": 128256
+[36m(WorkerDict pid=4537)[0m }
+[36m(WorkerDict pid=4537)[0m
+[36m(WorkerDict pid=4744)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in LlamaForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`[32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=4744)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009[32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=4744)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')[32m [repeated 3x across cluster][0m
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][32m [repeated 4x across cluster][0m
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:14,  4.97s/it][32m [repeated 10x across cluster][0m
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  4.84it/s][32m [repeated 3x across cluster][0m
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:14<00:04,  4.87s/it][32m [repeated 2x across cluster][0m
+Loading checkpoint shards: 100%|██████████| 4/4 [00:15<00:00,  3.98s/it]
+[36m(WorkerDict pid=4537)[0m LlamaForCausalLM contains 8.03B parameters
+[36m(WorkerDict pid=4537)[0m Actor use_remove_padding=True[32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=4537)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f16f309f940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f16f309f820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=4745)[0m wrap_policy: functools.partial(<function _or_policy at 0x7fb981ac4940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7fb981ac4820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=4745)[0m Total steps: 13250, num_warmup_steps: 265
+[36m(WorkerDict pid=4537)[0m Before building vllm rollout, memory allocated (GB): 7.478795528411865, memory reserved (GB): 7.544921875
+[36m(WorkerDict pid=4537)[0m WARNING 07-23 10:12:15 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(WorkerDict pid=4744)[0m Actor use_remove_padding=True[32m [repeated 4x across cluster][0m
+[36m(WorkerDict pid=4744)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f19b700c940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f19b700c820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])[32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=4537)[0m local rank 0
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_1
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_2
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_3
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_4
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_1
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_2
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_3
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=4745)[0m
+[36m(WorkerDict pid=4745)[0m t-20250723180441-xbnbm-worker-0:4745:5102 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_4
+[36m(WorkerDict pid=4745)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=4537)[0m Total steps: 13250, num_warmup_steps: 265[32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4743)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4744)[0m
+[36m(WorkerDict pid=4537)[0m before init cache memory allocated: 24.132896256GB, reserved: 24.21161984GB
+[36m(WorkerDict pid=4537)[0m after init cache memory allocated: 64.878462464GB, reserved: 65.013809152GB
+[36m(WorkerDict pid=4537)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=4537)[0m   warnings.warn(
+[36m(WorkerDict pid=4537)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 500, 'detokenize': False, 'temperature': 1, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(WorkerDict pid=4537)[0m After building vllm rollout, memory allocated (GB): 45.46524953842163, memory reserved (GB): 60.548828125
+[36m(WorkerDict pid=4537)[0m After building sharding manager, memory allocated (GB): 45.46524953842163, memory reserved (GB): 60.548828125
+Testing:   0%|          | 0/41 [00:00<?, ?it/s]
+[2025-07-23 10:12:57,902][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:12:58,094][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:12:58,627][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:12:58,955][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:12:59,522][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:12:59,633][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:12:59,800][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:00,076][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:01,579][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:01,995][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:02,008][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:02,035][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:02,217][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:02,534][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:02,977][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:04,111][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:04,402][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:04,861][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:05,765][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:07,546][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:07,617][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:07,659][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:07,744][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:07,828][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:09,412][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:09,962][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:10,245][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:10,387][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:10,472][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:10,653][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:11,249][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:12,031][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:12,174][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:12,397][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:12,690][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:12,915][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:13,095][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:13,371][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:13,826][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:13,840][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:14,448][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:14,448][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:14,726][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:14,935][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:15,033][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:15,130][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:15,696][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:15,735][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:16,086][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:16,340][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:16,604][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:16,643][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:17,125][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:18,033][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:18,803][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:18,871][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:19,341][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:20,076][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:20,222][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:21,625][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:22,056][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:30,168][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:30,206][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:30,636][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:13:59,959][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:00,226][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:00,353][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:00,473][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:00,528][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:00,940][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:01,100][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:01,383][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:01,817][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:02,138][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:02,394][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:02,729][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:02,801][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:02,828][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:03,123][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:03,196][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:03,421][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:03,463][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:03,607][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:03,897][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:03,951][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:04,444][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:04,498][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:04,631][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:04,684][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:05,063][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:05,223][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:05,252][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:05,345][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:05,372][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:33,372][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:33,461][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:33,616][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:33,819][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:34,555][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:34,582][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:34,648][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:34,651][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:35,072][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:35,148][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:35,259][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:35,327][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:35,421][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:35,798][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:36,249][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:36,985][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:37,295][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:37,483][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:14:39,105][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:06,609][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:06,622][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:06,655][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:06,833][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:07,020][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:07,218][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:07,395][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:07,433][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:07,662][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:08,068][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:08,390][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:08,536][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:08,655][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:08,720][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:09,050][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:09,733][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:12,242][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:40,569][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:40,693][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:41,133][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:41,161][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:41,694][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:41,964][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:42,138][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:42,663][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:42,941][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:43,518][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:43,546][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:43,910][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:43,990][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:44,214][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:44,502][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:44,886][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:15:45,973][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: Who was president of the United States in the year that Citibank was founded?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>First, I need to find out when Citibank was founded. This will give me the year, and then I can search for the president of the United States during that year.</think>
+
+<search>Citibank founding year</search>
+<information>
+1. Citibank was founded in 1812 as the City Bank of New York. - Source: Investopedia
+2. Citibank was founded in 1812. - Source: History.com
+3. Citibank was founded in 1812 as the City Bank of New York, and later became known as Citibank in 1976. - Source: Encyclopedia.com
+</information>
+<search>President of the United States in 1812</search>
+<information>
+1. James Madison was the President of the United States from 1809 to 1817. - Source: Whitehouse.gov
+2. The President of the United States in 1812 was James Madison. - Source: History.com
+3. James Madison served as the fourth President of the United States from 1809 to 1817, including the year 1812. - Source: Biography.com
+</information>
+<search>Capital of the United States in 1812</search>
+<information>
+No information found.
+</information>
+<search>Population of the United States in 1812</search>
+<information>
+1. James Madison was the fourth President of the United States from 1809 to 1817. - Source: Britannica.com
+2. James Madison was a Founding Father and the fourth President of the United States. - Source: History.com
+3. James Madison is often referred to as the "Father of the Constitution." - Source: Whitehouse.gov
+</information>
+<search>Capital of the United States in 1812</search>
+<information>
+1. The capital of the United States in 1812 was Washington, D.C. - Source: History.com
+2. In 1812, the capital of the United States was still in the process of being built, but it was located in Washington, D.C. - Source: Britannica.com
+3. The capital of the United States in 1812 was Washington, D.C., which was officially designated as the capital in 1790. - Source: Encyclopedia.com
+</information>
+
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: What rocket was the first spacecraft that ever approached Uranus launched on?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think> To find the answer, I need to know which spacecraft approached Uranus first. I should start by searching for the name of the first spacecraft to approach Uranus. </think>
+
+<search>First spacecraft to approach Uranus</search>
+<information>
+1. Voyager 2 - Wikipedia: Voyager 2 is a space probe launched in 1977 that is one of the most distant human-made objects in space. It is the second of five spacecraft to visit Jupiter and Saturn and the first to visit Uranus and Neptune.
+2. NASA - Voyager 2: Voyager 2 is a space probe launched in 1977 that has visited Jupiter, Saturn, Uranus, and Neptune. It is one of the most distant human-made objects in space.
+3. Space.com - Voyager 2: Voyager 2 is a space probe launched in 1977 that has visited Jupiter, Saturn, Uranus, and Neptune. It is the first spacecraft to visit Uranus and Neptune.
+</information>
+<think> Based on the information I found, Voyager 2 is the first spacecraft to approach Uranus. </think>
+
+<question> What is the name of the first spacecraft to approach Uranus? </question>
+<answer> Voyager 2 </answer> |
+|  |
+---|---|  |
+| <think> To find the answer, I need to know which spacecraft approached Uranus first. I should start by searching for the name of the first spacecraft to approach Uranus. </think>
+
+<search>First spacecraft to approach Uranus</search> |
+|  |
+---|---|  |
+| <think> Based on the information I found, Voyager 2 is the first spacecraft to approach Uranus. </think>
+
+<question> What is the name of the first spacecraft to approach Uranus? </question>
+<answer> Voyager 2 </answer> |
+|  |
+---|---|  |
+| <think> To find the answer, I need to know which spacecraft approached Uranus first. I should start by searching for the name of the first spacecraft to approach Uranus. </think>
+
+<search>First spacecraft to approach Uranus</search> |
+|  |
+---|---|  |
+| <think> Based on the information I found, Voyager 2 is the first spacecraft to approach Uranus. </think>
+
+<question> What is the name of the first spacecraft to approach Uranus? </question
+--------------------------------
+Golden answers: ['July 31, 1958']
+Extracted answer: Dr. John Walsh, Dr. Robert Bucknam, or Dr. Bill Sears
+Solution string: system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: When was the person Russ Hanneman is based on born?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>First, I need to find out who Russ Hanneman is based on. Russ Hanneman is a character in the TV show "Everwood". I need to find out who the character is based on.</think>
+
+<search>Russ Hanneman Everwood character inspiration</search>
+<information>
+1. Russ Hanneman, a character in the TV show "Everwood", was inspired by a real-life doctor named Dr. John Walsh, who was a pediatrician in the 1990s and 2000s. However, another source claims that the character was inspired by Dr. Robert Bucknam, a pediatrician who is known for his work in the field of pediatric care.
+2. Another source claims that the character was inspired by Dr. Bill Sears, a pediatrician and author who is known for his work in the field of attachment parenting.
+3. However, there is not enough information to confirm which of these individuals was the primary inspiration for the character.
+</information>
+<answer>Dr. John Walsh, Dr. Robert Bucknam, or Dr. Bill Sears</answer>  | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+[2025-07-23 10:16:16,093][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:16,218][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:16,961][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:17,112][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:17,444][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:17,568][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:17,835][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:19,099][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:19,308][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:19,349][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:19,684][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:20,406][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:20,698][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:21,254][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:21,368][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:21,453][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:22,008][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:22,063][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-23 10:16:22,463][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8000/v1/chat/completions "HTTP/1.1 200 OK"

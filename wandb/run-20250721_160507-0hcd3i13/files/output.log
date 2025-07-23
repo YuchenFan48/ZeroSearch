@@ -1,0 +1,557 @@
+Using LocalLogger is deprecated. The constructor API will change
+[36m(pid=7779)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=7779)[0m No module named 'vllm._version'
+[36m(pid=7779)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=7984)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=7984)[0m No module named 'vllm._version'
+[36m(pid=7984)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=7985)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=7985)[0m No module named 'vllm._version'
+[36m(pid=7985)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(WorkerDict pid=7984)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009
+[36m(WorkerDict pid=7984)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')
+[36m(WorkerDict pid=7984)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(WorkerDict pid=7779)[0m Model config after override: LlamaConfig {
+[36m(WorkerDict pid=7779)[0m   "_name_or_path": "/fs-computility/mabasic/shared/models/Llama-3.2-3B-Instruct",
+[36m(WorkerDict pid=7779)[0m   "architectures": [
+[36m(WorkerDict pid=7779)[0m     "LlamaForCausalLM"
+[36m(WorkerDict pid=7779)[0m   ],
+[36m(WorkerDict pid=7779)[0m   "attention_bias": false,
+[36m(WorkerDict pid=7779)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=7779)[0m   "bos_token_id": 128000,
+[36m(WorkerDict pid=7779)[0m   "eos_token_id": 128009,
+[36m(WorkerDict pid=7779)[0m   "head_dim": 128,
+[36m(WorkerDict pid=7779)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=7779)[0m   "hidden_size": 3072,
+[36m(WorkerDict pid=7779)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=7779)[0m   "intermediate_size": 8192,
+[36m(WorkerDict pid=7779)[0m   "max_position_embeddings": 131072,
+[36m(WorkerDict pid=7779)[0m   "mlp_bias": false,
+[36m(WorkerDict pid=7779)[0m   "model_type": "llama",
+[36m(WorkerDict pid=7779)[0m   "num_attention_heads": 24,
+[36m(WorkerDict pid=7779)[0m   "num_hidden_layers": 28,
+[36m(WorkerDict pid=7779)[0m   "num_key_value_heads": 8,
+[36m(WorkerDict pid=7779)[0m   "pad_token_id": 128009,
+[36m(WorkerDict pid=7779)[0m   "pretraining_tp": 1,
+[36m(WorkerDict pid=7779)[0m   "rms_norm_eps": 1e-05,
+[36m(WorkerDict pid=7779)[0m   "rope_scaling": {
+[36m(WorkerDict pid=7779)[0m     "factor": 32.0,
+[36m(WorkerDict pid=7779)[0m     "high_freq_factor": 4.0,
+[36m(WorkerDict pid=7779)[0m     "low_freq_factor": 1.0,
+[36m(WorkerDict pid=7779)[0m     "original_max_position_embeddings": 8192,
+[36m(WorkerDict pid=7779)[0m     "rope_type": "llama3"
+[36m(WorkerDict pid=7779)[0m   },
+[36m(WorkerDict pid=7779)[0m   "rope_theta": 500000.0,
+[36m(WorkerDict pid=7779)[0m   "tie_word_embeddings": true,
+[36m(WorkerDict pid=7779)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=7779)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=7779)[0m   "use_cache": true,
+[36m(WorkerDict pid=7779)[0m   "vocab_size": 128256
+[36m(WorkerDict pid=7779)[0m }
+[36m(WorkerDict pid=7779)[0m
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  6.52it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.97it/s]
+[36m(WorkerDict pid=7779)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=7779)[0m LlamaForCausalLM contains 3.21B parameters
+[36m(WorkerDict pid=7779)[0m wrap_policy: functools.partial(<function _or_policy at 0x7ef771585940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7ef771585820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=7984)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=7779)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in LlamaForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(pid=7986)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:[32m [repeated 5x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=7986)[0m No module named 'vllm._version'[32m [repeated 5x across cluster][0m
+[36m(pid=7986)[0m   from vllm.version import __version__ as VLLM_VERSION[32m [repeated 5x across cluster][0m
+[36m(WorkerDict pid=7779)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009[32m [repeated 8x across cluster][0m
+[36m(WorkerDict pid=7779)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')[32m [repeated 8x across cluster][0m
+[36m(WorkerDict pid=7989)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.[32m [repeated 7x across cluster][0m
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][32m [repeated 7x across cluster][0m
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  6.16it/s][32m [repeated 7x across cluster][0m
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.34it/s][32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7779)[0m Model config after override: LlamaConfig {
+[36m(WorkerDict pid=7779)[0m   "_name_or_path": "/fs-computility/mabasic/shared/models/Llama-3.2-3B-Instruct",
+[36m(WorkerDict pid=7779)[0m   "architectures": [
+[36m(WorkerDict pid=7779)[0m     "LlamaForCausalLM"
+[36m(WorkerDict pid=7779)[0m   ],
+[36m(WorkerDict pid=7779)[0m   "attention_bias": false,
+[36m(WorkerDict pid=7779)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=7779)[0m   "bos_token_id": 128000,
+[36m(WorkerDict pid=7779)[0m   "eos_token_id": 128009,
+[36m(WorkerDict pid=7779)[0m   "head_dim": 128,
+[36m(WorkerDict pid=7779)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=7779)[0m   "hidden_size": 3072,
+[36m(WorkerDict pid=7779)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=7779)[0m   "intermediate_size": 8192,
+[36m(WorkerDict pid=7779)[0m   "max_position_embeddings": 131072,
+[36m(WorkerDict pid=7779)[0m   "mlp_bias": false,
+[36m(WorkerDict pid=7779)[0m   "model_type": "llama",
+[36m(WorkerDict pid=7779)[0m   "num_attention_heads": 24,
+[36m(WorkerDict pid=7779)[0m   "num_hidden_layers": 28,
+[36m(WorkerDict pid=7779)[0m   "num_key_value_heads": 8,
+[36m(WorkerDict pid=7779)[0m   "pad_token_id": 128009,
+[36m(WorkerDict pid=7779)[0m   "pretraining_tp": 1,
+[36m(WorkerDict pid=7779)[0m   "rms_norm_eps": 1e-05,
+[36m(WorkerDict pid=7779)[0m   "rope_scaling": {
+[36m(WorkerDict pid=7779)[0m     "factor": 32.0,
+[36m(WorkerDict pid=7779)[0m     "high_freq_factor": 4.0,
+[36m(WorkerDict pid=7779)[0m     "low_freq_factor": 1.0,
+[36m(WorkerDict pid=7779)[0m     "original_max_position_embeddings": 8192,
+[36m(WorkerDict pid=7779)[0m     "rope_type": "llama3"
+[36m(WorkerDict pid=7779)[0m   },
+[36m(WorkerDict pid=7779)[0m   "rope_theta": 500000.0,
+[36m(WorkerDict pid=7779)[0m   "tie_word_embeddings": true,
+[36m(WorkerDict pid=7779)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=7779)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=7779)[0m   "use_cache": true,
+[36m(WorkerDict pid=7779)[0m   "vocab_size": 128256
+[36m(WorkerDict pid=7779)[0m }
+[36m(WorkerDict pid=7779)[0m
+[36m(WorkerDict pid=7986)[0m wrap_policy: functools.partial(<function _or_policy at 0x7ecc9a8c6940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7ecc9a8c6820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7986)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in LlamaForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7986)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7986)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')[32m [repeated 7x across cluster][0m
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][32m [repeated 8x across cluster][0m
+Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.90s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.87s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.84s/it]
+[36m(WorkerDict pid=7779)[0m LlamaForCausalLM contains 3.21B parameters
+[36m(WorkerDict pid=7989)[0m Actor use_remove_padding=True[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7779)[0m wrap_policy: functools.partial(<function _or_policy at 0x7ef771585940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7ef771585820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=7984)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f8fc82ec940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f8fc82ec820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=7990)[0m Total steps: 13250, num_warmup_steps: 265
+[36m(WorkerDict pid=7779)[0m Before building vllm rollout, memory allocated (GB): 1.4960813522338867, memory reserved (GB): 1.65234375
+[36m(WorkerDict pid=7985)[0m WARNING 07-21 16:05:43 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(WorkerDict pid=7986)[0m Actor use_remove_padding=True[32m [repeated 8x across cluster][0m
+[36m(WorkerDict pid=7986)[0m wrap_policy: functools.partial(<function _or_policy at 0x7ecc9a8c6940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7ecc9a8c6820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])[32m [repeated 6x across cluster][0m
+[36m(WorkerDict pid=7985)[0m local rank 0
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_1
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_2
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_3
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_4
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_1
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_2
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_3
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7988)[0m
+[36m(WorkerDict pid=7988)[0m t-20250722000424-n4sbk-worker-0:7988:8726 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_4
+[36m(WorkerDict pid=7988)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=7986)[0m Total steps: 13250, num_warmup_steps: 265[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7986)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7984)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7985)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7987)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7989)[0m
+[36m(WorkerDict pid=7779)[0m before init cache memory allocated: 8.074507264GB, reserved: 8.151629824GB
+[36m(WorkerDict pid=7779)[0m after init cache memory allocated: 60.10065408GB, reserved: 60.17777664GB
+[36m(WorkerDict pid=7990)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 4096, 'detokenize': False, 'temperature': 1.0, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(WorkerDict pid=7986)[0m WARNING 07-21 16:05:43 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7986)[0m local rank 0[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7990)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=7990)[0m   warnings.warn(
+Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.90s/it][32m [repeated 6x across cluster][0m
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.82s/it][32m [repeated 7x across cluster][0m
+Training:   0%|          | 0/13250 [00:00<?, ?it/s]
+[36m(WorkerDict pid=7779)[0m After building vllm rollout, memory allocated (GB): 49.98839473724365, memory reserved (GB): 56.044921875
+[36m(WorkerDict pid=7779)[0m After building sharding manager, memory allocated (GB): 49.98839473724365, memory reserved (GB): 56.044921875
+epoch 0, step 1
+[2025-07-21 16:06:30,461][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:30,560][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:30,780][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:31,094][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:31,164][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:31,235][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:31,575][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:31,584][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:31,593][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:31,635][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:31,685][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:31,710][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:31,994][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:32,038][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:32,168][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:32,177][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:32,369][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:32,396][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:32,493][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:32,736][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:33,024][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:33,147][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:33,244][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:33,543][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:33,587][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:33,667][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:33,720][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:33,799][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:33,879][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:33,959][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:34,002][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:34,249][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:34,267][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:34,371][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:34,389][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:34,520][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:34,529][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:34,694][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:34,809][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:34,976][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:35,248][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:35,285][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:35,532][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:35,532][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:35,801][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:35,854][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:35,986][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:36,456][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:36,493][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:36,598][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:36,766][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:36,811][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:36,900][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:37,086][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:37,131][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:37,538][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:37,707][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:37,842][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:37,947][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:38,382][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:38,897][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:39,103][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:39,120][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:39,557][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:39,666][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:39,736][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:40,180][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:40,234][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:40,279][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:40,430][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:40,702][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:40,746][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:40,783][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:40,883][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:40,892][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:41,056][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:41,092][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:41,319][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:41,520][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:41,521][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:41,589][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:41,654][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:41,822][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:41,839][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:41,848][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:42,378][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:42,416][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:42,458][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:42,947][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:43,667][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:43,986][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:44,004][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:44,021][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:44,034][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:44,098][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:44,237][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:44,768][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:44,795][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:45,432][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:45,539][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:45,611][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:45,692][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:45,771][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:45,866][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:45,883][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:45,943][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:46,366][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:46,522][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:46,584][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:48,136][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:06:48,947][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:07,891][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:07,949][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,030][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,074][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,086][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,222][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,232][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,357][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,416][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,436][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,546][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,738][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,826][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,880][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,950][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:08,951][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:09,117][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:09,247][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:09,465][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:09,501][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:09,589][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:09,668][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:09,668][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:09,798][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:09,912][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:09,991][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:10,266][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:10,303][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:10,406][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:10,584][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:10,696][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:10,747][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:10,912][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:10,937][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:11,288][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:11,335][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:11,452][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:11,844][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:07:12,617][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:34,820][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:34,837][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:34,893][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:34,954][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:34,971][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:35,014][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:35,083][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:35,227][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:35,405][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:35,506][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:35,556][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:35,563][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:35,780][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:35,885][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:08:36,813][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:00,212][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:00,248][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:00,308][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:00,489][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:00,532][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:00,604][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:00,880][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:00,900][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:00,999][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:01,531][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:01,758][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:01,938][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:02,881][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:10:04,842][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:11:27,556][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:11:27,573][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:11:27,581][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:11:27,596][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:11:27,723][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 16:11:28,760][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+{'micro_batch_size': 16, 'max_token_len': 16384, 'use_dynamic_bsz': False, 'temperature': 1.0}
+loss_mask shape: torch.Size([128, 4096]), loss_mask sum: 521890
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 21 Jul 2025
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: number of members of bjp in rajya sabha?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think> I need to find out the current number of members of the Bharatiya Janata Party (BJP) in the Rajya Sabha. </think>
+
+<search>Bharatiya Janata Party (BJP) members in Rajya Sabha</search>
+<information>
+According to the official website of the Rajya Sabha, the Bharatiya Janata Party (BJP) has 58 members in the Rajya Sabha as of 2022.
+</information>
+<answer>58</answer><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_i
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 21 Jul 2025
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: when was ain't added to the dictionary?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<search>Ain't added to dictionary</search>
+<information>
+1. Merriam-Webster's Dictionary added "ain't" to its dictionary in 1946.
+2. According to Oxford English Dictionary, "ain't" was first included in 1986.
+3. Cambridge Dictionary lists "ain't" as a word since 1993.
+</information>
+<answer>1946</answer><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 21 Jul 2025
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: The cartel Rafael Caro Quintero's brother was the founder and former leader of was based in what country?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>Since Rafael Caro Quintero's brother was the founder and former leader of a cartel, we need to find out which cartel that is. I already know Rafael Caro Quintero is associated with the Mexican cartel Los Zetas.</think>
+
+<search>Your query: Rafael Caro Quintero's brother cartel founder</search>
+<information>
+No information found.
+</information>
+<answer>Mexico</answer><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|e
+system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 21 Jul 2025
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: Which team, founded by Lamar Hunt in 1995, did Connor Hallisey last play for?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<search>Lamar Hunt founded team in 1995</search>
+<information>
+1. Lamar Hunt founded the Kansas City Chiefs in 1960, not in 1995.
+2. No information found about a team founded by Lamar Hunt in 1995.
+</information>
+<answer>I cannot verify which team Connor Hallisey last played for. </answer><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|
+--------------------------------
+Golden answers: ['Nina Byers']
+Extracted answer: Ekman, Geiger
+Solution string: system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 21 Jul 2025
+
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Answer the given question step by step. Start by reasoning inside <think>Your thought</think>. Evert time you get new information, you should reason again using <think>Your thought</think>. If you lack knowledge, search using <search>Your query</search> and return the top three results in <information>Your information</information>. You can search multiple times as needed and each search should only search for one information about only one entity. For questions concerning more than one entities, break them down into steps and search for each piece of information. Finally, provide your answer in <answer>Your answer</answer> without detailed explanations, for example, <answer>Beijing</answer>. Let's search step by step.
+Question: Who did the 1957 winner of the Nobel Prize in Physics work with on the problem of magnetic flux?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+<think>Who was the 1957 Nobel Prize in Physics winner?</think>
+
+<search>Nobel Prize in Physics winner 1957</search>
+<information>
+1. The 1957 Nobel Prize in Physics was awarded to Wilhelm Ekman and Hans Geiger (jointly) and Ryogo Nakanishi (not alone), but most notably to Wilhelm Ekman and Hans Geiger (jointly) for their contributions to the theory of magnetic suspension.
+</information>
+<answer>Ekman, Geiger</answer><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_id|><|eot_
+token_level_rewards shape: torch.Size([128, 16689]), response_mask shape: torch.Size([128, 4096]), index shape: (128,)
+Error executing job with overrides: ['algorithm.adv_estimator=grpo', "data.train_files=['/fs-computility/mabasic/fanyuchen/Rethink-Search_tmp/verl_temp/ZeroSearch_dataset/train.parquet']", "data.val_files=['/fs-computility/mabasic/fanyuchen/Rethink-Search_tmp/verl_temp/ZeroSearch_dataset/test.parquet']", 'data.train_batch_size=64', 'data.max_prompt_length=1024', 'data.max_response_length=4096', 'actor_rollout_ref.model.path=/fs-computility/mabasic/shared/models/Llama-3.2-3B-Instruct', 'actor_rollout_ref.actor.optim.lr=1e-6', 'actor_rollout_ref.model.use_remove_padding=True', 'actor_rollout_ref.actor.ppo_mini_batch_size=256', 'actor_rollout_ref.actor.ppo_micro_batch_size=128', 'actor_rollout_ref.rollout.log_prob_micro_batch_size=128', 'actor_rollout_ref.actor.use_kl_loss=True', 'actor_rollout_ref.actor.kl_loss_coef=0.001', 'actor_rollout_ref.actor.kl_loss_type=low_var_kl', 'actor_rollout_ref.actor.entropy_coeff=0', 'actor_rollout_ref.model.enable_gradient_checkpointing=True', 'actor_rollout_ref.actor.fsdp_config.param_offload=True', 'actor_rollout_ref.actor.optim.lr_warmup_steps_ratio=0.02', 'actor_rollout_ref.actor.fsdp_config.optimizer_offload=True', 'actor_rollout_ref.ref.log_prob_micro_batch_size=128', 'actor_rollout_ref.rollout.tensor_model_parallel_size=1', 'actor_rollout_ref.rollout.name=vllm', 'actor_rollout_ref.rollout.gpu_memory_utilization=0.7', 'actor_rollout_ref.rollout.n_agent=2', 'actor_rollout_ref.ref.fsdp_config.param_offload=True', 'trainer.val_before_train=False', 'trainer.critic_warmup=0', 'trainer.logger=[console,wandb]', 'trainer.project_name=Rethink Search Scaling', 'trainer.experiment_name=llama_3.1_8b_inst_grpo_init', 'trainer.n_gpus_per_node=8', 'trainer.val_before_train=False', 'trainer.nnodes=1', 'trainer.save_freq=10000', 'trainer.test_freq=16', 'trainer.total_epochs=5']
+Traceback (most recent call last):
+  File "/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/trainer/main_ppo.py", line 156, in main
+    main_task(config)
+  File "/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/trainer/main_ppo.py", line 229, in main_task
+    trainer.fit()
+  File "/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/trainer/ppo/ray_trainer.py", line 845, in fit
+    batch = compute_advantage(batch,
+  File "/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/trainer/ppo/ray_trainer.py", line 145, in compute_advantage
+    advantages, returns = core_algos.compute_grpo_outcome_advantage(token_level_rewards=token_level_rewards,
+  File "/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/trainer/ppo/core_algos.py", line 153, in compute_grpo_outcome_advantage
+    scores = scores.unsqueeze(-1).tile([1, response_length]) * eos_mask
+RuntimeError: The size of tensor a (16689) must match the size of tensor b (4096) at non-singleton dimension 1
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

@@ -1,0 +1,10 @@
+Using LocalLogger is deprecated. The constructor API will change
+[36m(pid=7500)[0m /root/miniconda3/envs/venv/lib/python3.10/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=7500)[0m No module named 'vllm._version'
+[36m(pid=7500)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=7666)[0m /root/miniconda3/envs/venv/lib/python3.10/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=7666)[0m No module named 'vllm._version'
+[36m(pid=7666)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=7667)[0m /root/miniconda3/envs/venv/lib/python3.10/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=7667)[0m No module named 'vllm._version'
+[36m(pid=7667)[0m   from vllm.version import __version__ as VLLM_VERSION

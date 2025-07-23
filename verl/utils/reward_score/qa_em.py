@@ -20,17 +20,28 @@ import numpy as np
 
 
 def normalize_answer(s):
+    if s is None:
+        return 'No answer'
+    
     def remove_articles(text):
+        if not text:
+            return text
         return re.sub(r"\b(a|an|the)\b", " ", text)
 
     def white_space_fix(text):
+        if not text:
+            return text
         return " ".join(text.split())
 
     def remove_punc(text):
+        if not text:
+            return text
         exclude = set(string.punctuation)
         return "".join(ch for ch in text if ch not in exclude)
 
     def lower(text):
+        if not text:
+            return text
         return text.lower()
 
     return white_space_fix(remove_articles(remove_punc(lower(s))))
@@ -164,3 +175,111 @@ def compute_score_subem(solution_str, ground_truth, method='strict', format_scor
             return score
         else:
             return format_score
+
+
+def format_reward(response: str) -> float:
+    """
+    Simple format reward: 1.0 if correct format, 0.0 otherwise.
+    
+    Required format:
+    1. Start with <think>...</think>
+    2. Each <search> must be paired with <information>
+    3. End with <answer>...</answer>
+    """
+    
+    response = response.strip()
+    
+    # Check if any tag content contains disallowed tags
+    allowed_tags = {'think', 'search', 'information', 'answer', '/think', '/search', '/information', '/answer'}
+    all_tags = re.findall(r'<([^>]+)>', response)
+    for tag in all_tags:
+        if tag not in allowed_tags:
+            return 0.0
+    
+    # if not is_valid_sequence(response)[0]:
+    #     return 0.0
+    
+    # Must start with <think> and end with </answer>
+    if not (response.startswith('<think>') and response.endswith('</answer>')):
+        return 0.0
+
+    # Extract all tags in order
+    tags = re.findall(r'<(/?(?:think|search|information|answer))>', response)
+    
+    # Check if any tag content is empty
+    tag_contents = {
+        'think': re.findall(r'<think>(.*?)</think>', response, re.DOTALL),
+        'search': re.findall(r'<search>(.*?)</search>', response, re.DOTALL),
+        'information': re.findall(r'<information>(.*?)</information>', response, re.DOTALL),
+        'answer': re.findall(r'<answer>(.*?)</answer>', response, re.DOTALL)
+    }
+    
+    
+    if len(tags) < 4:  
+        return 0.0
+    # Return 0 if any tag has empty content
+    for tag_type, contents in tag_contents.items():
+        for content in contents:
+            if not content.strip():
+                return 0.0
+            if tag_type == 'search' and len(content.split('\n')) != 1:
+                return 0.0
+            if tag_type == 'search' and 'your query' in content.lower():
+                return 0.0
+            if tag_type == 'think' and 'your thoughts' in content.lower():
+                return 0.0
+            if tag_type == 'answer' and 'your answer' in content.lower():
+                return 0.0
+            if tag_type == 'information' and 'your information' in content.lower():
+                return 0.0
+            # if tag_type == 'information':
+            #     documents = []
+            #     documents.append(content.split('Document 1: ')[-1].split('Document 2: ')[0])
+            #     documents.append(content.split('Document 2:')[-1].split('Document 3: ')[0])
+            #     documents.append(content.split('Document 3: ')[-1])
+            #     documents = [doc.strip() for doc in documents if doc.strip()]
+            #     documents = list(set(documents))
+            #     if len(documents) != 3:
+            #         return 0.0
+            #     for line in documents:
+            #         if len(line.split(' ')) < 15 or len(line.split(' ')) > 70:
+            #             return 0.0  # 
+
+    # Check structure
+    if tags[0] != 'think' or tags[1] != '/think':
+        return 0.0
+    
+    if tags[-2] != 'answer' or tags[-1] != '/answer':
+        return 0.0
+    
+    # Check search-information pairing in the middle
+    middle_tags = tags[2:-2]  # Exclude initial think and final answer
+    
+    i = 0
+    while i < len(middle_tags):
+        if middle_tags[i] == 'search':
+            # Must be followed by /search, information, /information
+            if (i + 3 >= len(middle_tags) or 
+                middle_tags[i + 1] != '/search' or
+                middle_tags[i + 2] != 'information' or 
+                middle_tags[i + 3] != '/information'):
+                return 0.0
+            i += 4
+        else:
+            i += 1
+
+    think_num = response.count('<think>')
+    search_num = response.count('<search>')
+    information_num = response.count('<information>')
+    if search_num != information_num:
+        return 0.0
+    
+    max_turn = 2
+    score = 1.0 / max_turn * think_num
+    ratio = 1.0
+    
+    upper_bound = 8
+    if think_num != search_num + 1:
+        ratio = min(think_num, search_num + 1) / max(think_num, search_num + 1)
+        
+    return min(score, 1.0) * ratio if think_num <= upper_bound else 0.0

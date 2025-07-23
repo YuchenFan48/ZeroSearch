@@ -1,0 +1,223 @@
+_wandb:
+    value:
+        cli_version: 0.19.11
+        m: []
+        python_version: 3.9.21
+        t:
+            "1":
+                - 1
+                - 11
+                - 30
+                - 41
+                - 49
+                - 50
+                - 55
+                - 71
+                - 95
+                - 105
+            "2":
+                - 1
+                - 11
+                - 30
+                - 41
+                - 49
+                - 50
+                - 55
+                - 71
+                - 95
+                - 105
+            "3":
+                - 13
+                - 16
+                - 23
+                - 55
+            "4": 3.9.21
+            "5": 0.19.11
+            "6": 4.47.1
+            "8":
+                - 5
+            "12": 0.19.11
+            "13": linux-x86_64
+actor_rollout_ref:
+    value:
+        actor:
+            clip_ratio: 0.2
+            entropy_coeff: 0
+            fsdp_config:
+                fsdp_size: -1
+                grad_offload: false
+                optimizer_offload: true
+                param_offload: true
+                wrap_policy:
+                    min_num_params: 0
+            grad_clip: 1
+            kl_loss_coef: 0.001
+            kl_loss_type: low_var_kl
+            optim:
+                lr: 1e-06
+                lr_warmup_steps_ratio: 0.02
+                min_lr_ratio: null
+                total_training_steps: 13250
+                warmup_style: constant
+            ppo_epochs: 1
+            ppo_max_token_len_per_gpu: 16384
+            ppo_micro_batch_size: 128
+            ppo_mini_batch_size: 256
+            shuffle: false
+            state_masking: false
+            strategy: fsdp
+            ulysses_sequence_parallel_size: 1
+            use_dynamic_bsz: false
+            use_kl_loss: true
+        hybrid_engine: true
+        model:
+            enable_gradient_checkpointing: true
+            external_lib: null
+            path: /fs-computility/mabasic/shared/models/Llama-3.2-3B-Instruct
+            use_remove_padding: true
+        ref:
+            fsdp_config:
+                fsdp_size: -1
+                param_offload: true
+                wrap_policy:
+                    min_num_params: 0
+            log_prob_max_token_len_per_gpu: 16384
+            log_prob_micro_batch_size: 128
+            log_prob_use_dynamic_bsz: false
+            ulysses_sequence_parallel_size: 1
+        rollout:
+            do_sample: true
+            dtype: bfloat16
+            enforce_eager: true
+            free_cache_engine: true
+            gpu_memory_utilization: 0.7
+            ignore_eos: false
+            load_format: dummy_dtensor
+            log_prob_max_token_len_per_gpu: 16384
+            log_prob_micro_batch_size: 128
+            log_prob_use_dynamic_bsz: false
+            max_num_batched_tokens: 8192
+            max_num_seqs: 1024
+            "n": 1
+            n_agent: 2
+            name: vllm
+            prompt_length: 1024
+            response_length: 4096
+            temperature: 1
+            tensor_model_parallel_size: 1
+            top_k: -1
+            top_p: 0.95
+algorithm:
+    value:
+        adv_estimator: grpo
+        gamma: 1
+        kl_ctrl:
+            kl_coef: 0.001
+            type: fixed
+        kl_penalty: kl
+        lam: 1
+        no_think_rl: false
+        state_masking:
+            end_state_marker: </information>
+            start_state_marker: <information>
+critic:
+    value:
+        cliprange_value: 0.5
+        forward_max_token_len_per_gpu: 32768
+        forward_micro_batch_size: 64
+        grad_clip: 1
+        model:
+            enable_gradient_checkpointing: false
+            external_lib: null
+            fsdp_config:
+                fsdp_size: -1
+                grad_offload: false
+                optimizer_offload: false
+                param_offload: false
+                wrap_policy:
+                    min_num_params: 0
+            path: ~/models/deepseek-llm-7b-chat
+            tokenizer_path: /fs-computility/mabasic/shared/models/Llama-3.2-3B-Instruct
+            use_remove_padding: false
+        optim:
+            lr: 1e-05
+            lr_warmup_steps_ratio: 0
+            min_lr_ratio: null
+            total_training_steps: 13250
+            warmup_style: constant
+        ppo_epochs: 1
+        ppo_max_token_len_per_gpu: 32768
+        ppo_micro_batch_size: 64
+        ppo_mini_batch_size: 256
+        shuffle: false
+        strategy: fsdp
+        ulysses_sequence_parallel_size: 1
+        use_dynamic_bsz: false
+data:
+    value:
+        max_obs_length: 512
+        max_prompt_length: 1024
+        max_response_length: 4096
+        max_start_length: 256
+        prompt_key: prompt
+        return_raw_chat: false
+        return_raw_input_ids: false
+        shuffle_train_dataloader: true
+        tokenizer: null
+        train_batch_size: 64
+        train_data_num: null
+        train_files:
+            - /fs-computility/mabasic/fanyuchen/Rethink-Search_tmp/verl_temp/ZeroSearch_dataset/train.parquet
+        val_batch_size: 1312
+        val_data_num: null
+        val_files:
+            - /fs-computility/mabasic/fanyuchen/Rethink-Search_tmp/verl_temp/ZeroSearch_dataset/test.parquet
+retriever:
+    value:
+        end_threshold: 0.5
+        llm_ip: localhost
+        retriever_ip: localhost
+        search_engine: wiki
+        search_mode: simulate
+        simulate_llm: None
+        start_threshold: 0.5
+        temperature: 0.8
+        topk: 5
+reward_model:
+    value:
+        enable: false
+        forward_max_token_len_per_gpu: 32768
+        max_length: null
+        micro_batch_size: 64
+        model:
+            external_lib: null
+            fsdp_config:
+                min_num_params: 0
+                param_offload: false
+            input_tokenizer: /fs-computility/mabasic/shared/models/Llama-3.2-3B-Instruct
+            path: ~/models/FsfairX-LLaMA3-RM-v0.1
+            use_remove_padding: false
+        strategy: fsdp
+        ulysses_sequence_parallel_size: 1
+        use_dynamic_bsz: false
+trainer:
+    value:
+        critic_warmup: 0
+        default_hdfs_dir: ~/experiments/qa/ppo/llama_3.1_8b_inst_grpo_init
+        default_local_dir: checkpoints/Rethink Search Scaling/llama_3.1_8b_inst_grpo_init
+        do_search: true
+        experiment_name: llama_3.1_8b_inst_grpo_init
+        logger:
+            - console
+            - wandb
+        max_turns: 2
+        n_gpus_per_node: 4
+        nnodes: 1
+        project_name: Rethink Search Scaling
+        reward_function: f1
+        save_freq: 10000
+        test_freq: 16
+        total_epochs: 5
+        total_training_steps: null
+        val_before_train: false
+        val_only: false

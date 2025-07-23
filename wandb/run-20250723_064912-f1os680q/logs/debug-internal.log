@@ -1,0 +1,7 @@
+{"time":"2025-07-23T06:49:12.503587237Z","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/wandb/run-20250723_064912-f1os680q/logs/debug-core.log"}
+{"time":"2025-07-23T06:49:13.102863773Z","level":"INFO","msg":"created new stream","id":"f1os680q"}
+{"time":"2025-07-23T06:49:13.102915561Z","level":"INFO","msg":"stream: started","id":"f1os680q"}
+{"time":"2025-07-23T06:49:13.102932275Z","level":"INFO","msg":"sender: started","stream_id":"f1os680q"}
+{"time":"2025-07-23T06:49:13.102931279Z","level":"INFO","msg":"writer: Do: started","stream_id":"f1os680q"}
+{"time":"2025-07-23T06:49:13.102954698Z","level":"INFO","msg":"handler: started","stream_id":"f1os680q"}
+{"time":"2025-07-23T06:49:13.476384223Z","level":"INFO","msg":"Starting system monitor"}

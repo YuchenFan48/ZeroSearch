@@ -9,10 +9,19 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from openai import OpenAI
 import random
 import time
+import httpx
 import serpapi
+import logging
+import json
 import math
 import requests
-
+from contextlib import contextmanager
+import hashlib
+import asyncio
+from concurrent.futures import as_completed
+# disable http command 
+logging.getLogger("urllib3").setLevel(logging.WARNING)
+        
 @dataclass
 class GenerationConfig:
     max_turns: int
@@ -23,118 +32,116 @@ class GenerationConfig:
     num_gpus: int
     no_think_rl: bool=False
     llm_ip: str = None
-    retriever_ip: str = None
     temperature: float = 0.8
     topk: int = 5
     search_mode: str = 'google'
     end_threshold: float = 0.5
     start_threshold: float = 0.5
+    simulate_llm: str = 'None'
+    max_concurrent_llm_calls: int = 10  # New parameter for concurrency control
 
+def ask_llm_single(ip_list_raw, prompt, temperature, call_id=None):
+    """Single LLM call - extracted from original ask_llm for reuse"""
+    ports = [8001]
+    original_http_proxy = os.environ.get('http_proxy', '')
+    original_https_proxy = os.environ.get('https_proxy', '')
+    original_HTTP_PROXY = os.environ.get('HTTP_PROXY', '')
+    original_HTTPS_PROXY = os.environ.get('HTTPS_PROXY', '')
+    
+    # Clear proxy settings
+    os.environ['http_proxy'] = ''
+    os.environ['https_proxy'] = ''
+    os.environ['HTTP_PROXY'] = ''
+    os.environ['HTTPS_PROXY'] = ''
+    os.environ['no_proxy'] = '*'
+    os.environ['NO_PROXY'] = '*'
+    
+    try:
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                port = random.choice(ports)
+                openai_api_key = "EMPTY"
+                openai_api_base = f"http://172.30.52.145:{port}/v1"
+                client = OpenAI(
+                    api_key=openai_api_key,
+                    base_url=openai_api_base
+                )
 
+                # Prepare the content list
+                content = [{"type": "text", "text": prompt}]
+                chat_response = client.chat.completions.create(
+                    model="/fs-computility/mabasic/shared/models/Llama-3.2-3B-Instruct",
+                    max_tokens=1024,
+                    temperature=temperature,
+                    messages=[
+                        {"role": "system", "content": ""},
+                        {
+                            "role": "user",
+                            "content": content
+                        },
+                    ],
+                )
+                return {
+                    'call_id': call_id,
+                    'response': chat_response.choices[0].message.content,
+                    'success': True
+                }
+            except Exception as e:
+                print(f"LLM call attempt {attempt + 1} failed: {e}")
+                if attempt == max_retries - 1:
+                    return {
+                        'call_id': call_id,
+                        'response': 'Error: Failed to get response from LLM',
+                        'success': False
+                    }
+                time.sleep(0.1)  # Brief pause before retry
+    finally:
+        os.environ['http_proxy'] = original_http_proxy
+        os.environ['https_proxy'] = original_https_proxy
+        os.environ['HTTP_PROXY'] = original_HTTP_PROXY
+        os.environ['HTTPS_PROXY'] = original_HTTPS_PROXY
 
+def ask_llm_concurrent(prompts_with_ids: List[Tuple[str, str, float]], max_workers=10):
+    """
+    Concurrent LLM calls
+    
+    Args:
+        prompts_with_ids: List of tuples (prompt, call_id, temperature)
+        max_workers: Maximum number of concurrent workers
+        
+    Returns:
+        Dict mapping call_id to response
+    """
+    results = {}
+    
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit all tasks
+        future_to_id = {
+            executor.submit(ask_llm_single, '', prompt, temp, call_id): call_id 
+            for prompt, call_id, temp in prompts_with_ids
+        }
+        
+        # Collect results as they complete
+        for future in as_completed(future_to_id):
+            try:
+                result = future.result()
+                results[result['call_id']] = result
+            except Exception as e:
+                call_id = future_to_id[future]
+                print(f"LLM call {call_id} failed with exception: {e}")
+                results[call_id] = {
+                    'call_id': call_id,
+                    'response': f'Error: Exception occurred - {str(e)}',
+                    'success': False
+                }
+    
+    return results
+
+# Keep original function for backward compatibility
 def ask_llm(ip_list_raw, prompt, temperature):
-    ip_list = ip_list_raw.split(',')
-    while(1):
-        try:
-            ip = random.choice(ip_list)
-            openai_api_key = "EMPTY"
-            openai_api_base = f"http://{ip}:6001/v1"
-            client = OpenAI(
-                api_key=openai_api_key,
-                base_url=openai_api_base,
-            )
-
-            # Prepare the content list
-            content = [{"type": "text", "text": prompt}]
-
-            chat_response = client.chat.completions.create(
-                model='',
-                max_tokens=600,
-                temperature=temperature,
-                messages=[
-                    {"role": "system", "content": ""},
-                    {
-                        "role": "user",
-                        "content": content
-                    },
-                ],
-            )
-
-            return chat_response.choices[0].message.content
-        except:
-            continue
-
-def search_simulate_sft(ip, topk, temperature, query, problem, ground_truth, gt_threshold):
-    prob = random.random()
-    if prob > gt_threshold:
-        prompt = f'''You are the Google search engine.
-Given a query, you need to generate five useful documents for the query.
-
-The user is trying to answer the question: "{problem}" whose answer is {ground_truth}.
-Each document should contain about 30 words, and these documents should contain useful information.
-
-Query: {query}
-Useful Output:
-'''
-    else:
-        prompt = f'''You are the Google search engine.
-Given a query, you need to generate five noisy documents for the query.
-
-The user is trying to answer the question: "{problem}" whose answer is {ground_truth}.
-Each document should contain about 30 words, and these documents should contain noisy information.
-
-Query: {query}
-Noisy Output:
-'''
-
-    resuts = ask_llm(ip, prompt, temperature)
-    return '\n'.join(resuts.replace('\n\n', '\n').split('\n')).split(f'Doc {topk+1}')[0]
-
-def search_simulate_prompt(ip, topk, temperature, query, problem, ground_truth, gt_threshold):
-    prob = random.random()
-    if prob > gt_threshold:
-        prompt = f'''You are the Google search engine.
-Given a query, you need to imitate the style of the following demos and generate five useful documents for the query.
-
-Here is an example:
-Query: George Washington Bridge opening year
-Useful Output:
-Doc 1: The George Washington Bridge, an iconic structure connecting New York City to New Jersey, opened on October 25, 1931. Designed by Othmar Ammann, it marked a major milestone in civil engineering.
-Doc 2: Originally the Hudson River Bridge, the George Washington Bridge was named after the U.S.'s first president. Its 3,500-foot suspension span was the world's longest at completion in 1931.
-Doc 3: The bridge was modified in 1962 with added lower deck lanes, increasing capacity and easing congestion. This expansion transformed the bridge into a double-decked structure with twelve lanes.
-Doc 4: Constructed over four years, the George Washington Bridge's steel towers and cables exemplified engineering progress. It crucially linked New York and New Jersey's transportation networks.
-Doc 5: Handling over 103 million annual vehicles, the George Washington Bridge is globally one of the busiest. The Port Authority of NY and NJ oversees its traffic and infrastructure maintenance.
-
-The user is trying to answer the question: "{problem}" whose answer is {ground_truth}.
-You should generate documents that can help the user find the answer.
-Each document should contain about 30 words.
-You must directly output the English documents and not output any other texts.
-
-Query: {query}
-Useful Output:
-'''
-    else:
-        prompt = f'''You are the Google search engine. 
-Given a query, you need to imitate the style of the following demos and generate five related but noisy documents for the query.
-
-Here is an example:
-Query: George Washington Bridge opening year
-Noisy Output:
-Doc 1: The George Washington Bridge was a significant addition to New York's infrastructure, but there were many challenges during its construction, including budget overruns and worker strikes.
-Doc 2: While often mistaken for the opening of another iconic bridge, the Brooklyn Bridge, the George Washington Bridge has its own storied history involving political maneuvering and urban planning debates that shaped the bridge's final design.
-Doc 3: Discussions about the naming of the George Washington Bridge are interesting, as it was named to honor the first President of the United States. The name choice was significant given the geographical and historical implications of Washington's legacy.
-Doc 4: The bridge has been a point of contention over toll increases, traffic congestion solutions, and environmental impact assessments, which continue to affect policy decisions in the area.
-Doc 5: Considerations around the visual and architectural design of the George Washington Bridge also played a crucial role in its legacy as a landmark, balancing aesthetics with functionality.
-
-Each document should contain about 30 words, and these documents should contain related but noisy information.
-You must directly output the English documents and not output any other texts.
-
-Query: {query}
-Noisy Output:
-'''
-
-    resuts = ask_llm(ip, prompt, temperature)
-    return '\n'.join(resuts.replace('\n\n', '\n').split('\n')).split(f'Doc {topk+1}')[0]
+    result = ask_llm_single(ip_list_raw, prompt, temperature)
+    return result['response']
 
 class LLMGenerationManager:
     def __init__(
@@ -142,14 +149,11 @@ class LLMGenerationManager:
         tokenizer,
         actor_rollout_wg,
         config: GenerationConfig,
-
-        # logger: Tracking,
         is_validation: bool = False,
     ):
         self.tokenizer = tokenizer
         self.actor_rollout_wg = actor_rollout_wg
         self.config = config
-        # self.logger = logger
         self.is_validation = is_validation
 
         self.tensor_fn = TensorHelper(TensorConfig(
@@ -168,27 +172,19 @@ class LLMGenerationManager:
             padding="longest"
         )['input_ids']
 
-    def _postprocess_responses(self, responses: torch.Tensor) -> torch.Tensor:
-        """Process responses to stop at search operation or answer operation."""
+    def _postprocess_responses(self, responses: torch.Tensor) -> Tuple[torch.Tensor, List[str]]:
+        """
+        Process responses - just decode them, don't modify.
+        
+        Returns:
+            responses: Original response tensor
+            responses_str: Decoded response strings
+        """
         responses_str = self.tokenizer.batch_decode(
             responses, 
             skip_special_tokens=True
         )
-
-        responses_str = [resp.split('</search>')[0] + '</search>'
-                 if '</search>' in resp 
-                 else resp.split('</answer>')[0] + '</answer>'
-                 if '</answer>' in resp 
-                 else resp
-                 for resp in responses_str]
-
-        if self.config.no_think_rl:
-            raise ValueError('stop')
-            # if no_think_rl is enabled, only keep action in the str
-            actions, _ = self.env.postprocess_predictions(responses_str)
-            responses_str=[f"<answer>{envs[idx].ACTION_LOOKUP[action]}</answer>" for idx, action in enumerate(actions)]
-            print("RESPONSES:", responses_str)
-        responses = self._batch_tokenize(responses_str)
+        
         return responses, responses_str
 
     def _process_next_obs(self, next_obs: List[str]) -> torch.Tensor:
@@ -224,64 +220,33 @@ class LLMGenerationManager:
         # Cut to appropriate length
         effective_len = new_attention_mask.sum(dim=1).max()
         max_len = min(self.config.max_prompt_length, effective_len)
-
-        new_rollings = DataProto.from_dict({
+        
+        return DataProto.from_dict({
             'input_ids': new_input_ids[:, -max_len:],
             'position_ids': new_position_ids[:, -max_len:],
             'attention_mask': new_attention_mask[:, -max_len:]
         })
-        new_rollings.meta_info.update(rollings.meta_info)
-
-        return new_rollings
-
-    def _info_masked_concatenate_with_padding(self,
-                prompt: torch.Tensor,
-                prompt_with_mask: torch.Tensor,
-                response: torch.Tensor,
-                info: torch.Tensor = None,
-                pad_to_left: bool = True
-            ) -> torch.Tensor:
-        """Concatenate tensors and handle padding. Additionally, create a mask (info_mask) to cover the information block if it exists."""
-        pad_id = self.tokenizer.pad_token_id
-        tensors = [prompt, response]
-        tensors_with_mask = [prompt_with_mask, response]
-        if info is not None:
-            tensors.append(info)
-            info_mask = torch.full(info.size(), pad_id, dtype=info.dtype, device=info.device) # information mask
-            tensors_with_mask.append(info_mask)
-
-        concatenated = torch.cat(tensors, dim=1)
-        concatenated_with_info = torch.cat(tensors_with_mask, dim=1)
-        mask = concatenated != pad_id if pad_to_left else concatenated == pad_id
-        sorted_indices = mask.to(torch.int64).argsort(dim=1, stable=True)
-        padded_tensor = concatenated.gather(1, sorted_indices)
-        padded_tensor_with_info = concatenated_with_info.gather(1, sorted_indices)
-
-        return padded_tensor, padded_tensor_with_info
 
     def _update_right_side(self, right_side: Dict, 
                           cur_responses: torch.Tensor,
                           next_obs_ids: torch.Tensor = None) -> Dict:
         """Update right side state."""
         if next_obs_ids != None:
-            responses, responses_with_info_mask = self._info_masked_concatenate_with_padding(
-                    right_side['responses'],
-                    right_side['responses_with_info_mask'],
-                    cur_responses,
-                    next_obs_ids,
-                    pad_to_left=False
-                )
+            responses = self.tensor_fn.concatenate_with_padding([
+                right_side['responses'],
+                cur_responses,
+                next_obs_ids
+            ], pad_to_left=False)
         else:
-            responses, responses_with_info_mask = self._info_masked_concatenate_with_padding(
-                    right_side['responses'],
-                    right_side['responses_with_info_mask'],
-                    cur_responses,
-                    pad_to_left=False
-                )
+            responses = self.tensor_fn.concatenate_with_padding([
+                right_side['responses'],
+                cur_responses,
+            ], pad_to_left=False)
+        
         effective_len = self.tensor_fn.create_attention_mask(responses).sum(dim=1).max()
         max_len = min(self.config.max_prompt_length, effective_len)
         
-        return {'responses': responses[:, :max_len], 'responses_with_info_mask': responses_with_info_mask[:, :max_len]}
+        return {'responses': responses[:, :max_len]}
 
     def _generate_with_gpu_padding(self, active_batch: DataProto) -> DataProto:
         """
@@ -293,12 +258,10 @@ class LLMGenerationManager:
         num_gpus = self.config.num_gpus
         if num_gpus <= 1:
             return self.actor_rollout_wg.generate_sequences(active_batch)
-            
+        
         batch_size = active_batch.batch['input_ids'].shape[0]
         remainder = batch_size % num_gpus
         
-        for key in active_batch.batch.keys():
-            active_batch.batch[key] = active_batch.batch[key].long()
         if remainder == 0:
             return self.actor_rollout_wg.generate_sequences(active_batch)
         
@@ -312,12 +275,11 @@ class LLMGenerationManager:
             padded_batch[k] = torch.cat([v, pad_sequence], dim=0)
 
         padded_active_batch = DataProto.from_dict(padded_batch)
-        for key in padded_active_batch.batch.keys():
-            padded_active_batch.batch[key] = padded_active_batch.batch[key].long()
 
         # Generate with padded batch
+        padded_active_batch.meta_info = active_batch.meta_info
         padded_output = self.actor_rollout_wg.generate_sequences(padded_active_batch)
-
+        
         # Remove padding from output
         trimmed_batch = {k: v[:-padding_size] for k, v in padded_output.batch.items()}
         
@@ -335,121 +297,244 @@ class LLMGenerationManager:
         return padded_output
 
     def run_llm_loop(self, gen_batch, search_mode, current_step, total_steps, initial_input_ids: torch.Tensor) -> Tuple[Dict, Dict]:
-        """Run main LLM generation loop."""
+        """Run main LLM generation loop with concurrent information provider calls."""
+        
+        batch_size = gen_batch.batch['input_ids'].shape[0]
+        max_seq_len = gen_batch.batch['input_ids'].shape[1]  # This is the expected sequence length
         
         original_left_side = {'input_ids': initial_input_ids[:, -self.config.max_start_length:]}
-        original_right_side = {'responses': initial_input_ids[:, []], 'responses_with_info_mask': initial_input_ids[:, []]}
-        trajectory_turns = [0 for _ in range(gen_batch.batch['input_ids'].shape[0])]
-        active_mask = torch.ones(gen_batch.batch['input_ids'].shape[0], dtype=torch.bool)
-        turns_stats = torch.ones(gen_batch.batch['input_ids'].shape[0], dtype=torch.int)
-        valid_action_stats = torch.zeros(gen_batch.batch['input_ids'].shape[0], dtype=torch.int)
-        valid_search_stats = torch.zeros(gen_batch.batch['input_ids'].shape[0], dtype=torch.int)
+        trajectory_turns = [0 for _ in range(batch_size)]
+        active_mask = torch.ones(batch_size, dtype=torch.bool)
         active_num_list = [active_mask.sum().item()]
-        rollings = gen_batch
-
-        # Main generation loop
-        for step in range(self.config.max_turns):
-            gt_threshold = self.dynamic_threshold(current_step, total_steps, step + 1, self.config.max_turns + 1)
+        
+        # Keep track of accumulated responses for each example
+        accumulated_responses = [[] for _ in range(batch_size)]
+        
+        # Current generation context
+        current_gen_batch = gen_batch
+        meta_info = gen_batch.meta_info
+        with open('debug_init.txt', 'a') as f:
+            f.write(f"Meta Info: {meta_info}\n")
+        # Store the original prompts
+        original_prompt_ids = gen_batch.batch['input_ids'].clone()
+        original_prompt_texts_full = self.tokenizer.batch_decode(original_prompt_ids, skip_special_tokens=True)
+        
+        # Extract user content only
+        original_user_contents = []
+        for prompt_text in original_prompt_texts_full:
+            original_user_contents.append(prompt_text)
+        
+        # Track accumulated assistant responses only
+        accumulated_assistant_texts = [''] * batch_size
+        
+        for step in range(5):
             if not active_mask.sum():
                 break
-            rollings.batch = self.tensor_fn.cut_to_effective_len(
-                rollings.batch,
+            
+            # Cut to effective length
+            current_gen_batch.batch = self.tensor_fn.cut_to_effective_len(
+                current_gen_batch.batch,
                 keys=['input_ids', 'attention_mask', 'position_ids']
             )
             
-            # gen_output = self.actor_rollout_wg.generate_sequences(rollings)
-            rollings_active = DataProto.from_dict({
-                k: v[active_mask] for k, v in rollings.batch.items()
-            })            
-            gen_output = self._generate_with_gpu_padding(rollings_active)
-
-            meta_info = gen_output.meta_info            
-            responses_ids, responses_str = self._postprocess_responses(gen_output.batch['responses'])
-            responses_ids, responses_str = self.tensor_fn._example_level_pad(responses_ids, responses_str, active_mask)
-
-            # Execute in environment and process observations
-            next_obs, dones, valid_action, is_search = self.execute_predictions(
-                responses_str, gen_batch.non_tensor_batch['question'], gen_batch.non_tensor_batch['golden_answers'], search_mode, gt_threshold, active_mask
-            )
+            input_ids = current_gen_batch.batch['input_ids']
+            input_strs = self.tokenizer.batch_decode(input_ids, skip_special_tokens=True)
             
-            curr_active_mask = torch.tensor([not done for done in dones], dtype=torch.bool)
-            active_mask = active_mask * curr_active_mask
-            active_num_list.append(active_mask.sum().item())
-            turns_stats[curr_active_mask] += 1
-            valid_action_stats += torch.tensor(valid_action, dtype=torch.int)
-            valid_search_stats += torch.tensor(is_search, dtype=torch.int)
-
-            next_obs_ids = self._process_next_obs(next_obs)
-            
-            # Update states
-            rollings = self._update_rolling_state(
-                rollings,
-                responses_ids,
-                next_obs_ids
-            )
-            original_right_side = self._update_right_side(
-                original_right_side,
-                responses_ids,
-                next_obs_ids
-            )
-
-            for idx in range(len(dones)):
-                if trajectory_turns[idx] == 0 and dones[idx] == 1:
-                    trajectory_turns[idx] = step + 1
-
-        # final LLM rollout
-        if active_mask.sum():
-            gt_threshold = self.dynamic_threshold(current_step, total_steps, self.config.max_turns + 1, self.config.max_turns + 1)
-            rollings.batch = self.tensor_fn.cut_to_effective_len(
-                rollings.batch,
-                keys=['input_ids', 'attention_mask', 'position_ids']
-            )
-
-            # gen_output = self.actor_rollout_wg.generate_sequences(rollings)
-            rollings_active = DataProto.from_dict({
-                k: v[active_mask] for k, v in rollings.batch.items()
+            # Generate for active examples
+            active_batch = DataProto.from_dict({
+                k: v[active_mask] for k, v in current_gen_batch.batch.items()
             })
-            gen_output = self._generate_with_gpu_padding(rollings_active)
-
-            meta_info = gen_output.meta_info            
+            
+            active_batch.meta_info = meta_info
+            gen_output = self._generate_with_gpu_padding(active_batch)
+            new_meta_info = gen_output.meta_info
+            with open('debug_init.txt', 'a') as f:
+                f.write(f"New Meta Info: {new_meta_info}\n")
+            # Process responses
             responses_ids, responses_str = self._postprocess_responses(gen_output.batch['responses'])
-            responses_ids, responses_str = self.tensor_fn._example_level_pad(responses_ids, responses_str, active_mask)
-
-            # # Execute in environment and process observations
-            _, dones, valid_action, is_search = self.execute_predictions(
-                responses_str, gen_batch.non_tensor_batch['question'], gen_batch.non_tensor_batch['golden_answers'], search_mode, gt_threshold, active_mask
-            )
-
-            curr_active_mask = torch.tensor([not done for done in dones], dtype=torch.bool)
-            active_mask = active_mask * curr_active_mask
+            
+            # Get actions and contents
+            actions, contents = self.postprocess_predictions(responses_str)
+            
+            # Map back to full batch
+            active_indices = torch.where(active_mask)[0].tolist()
+            
+            # Collect all search requests for concurrent processing
+            search_requests = []
+            search_index_mapping = {}  # Maps search request index to (batch_idx, active_idx)
+            
+            for i, idx in enumerate(active_indices):
+                response_text = responses_str[i]
+                action = actions[i]
+                content = contents[i]
+                
+                if action == 'search':
+                    # Prepare search request
+                    search_end_pos = response_text.find('</search>') + len('</search>')
+                    response_up_to_search = response_text[:search_end_pos]
+                    accumulated_assistant_texts[idx] += response_up_to_search
+                    
+                    info_provider_prompt = original_user_contents[idx] + '\n' + accumulated_assistant_texts[idx] + '\n' + '<information>'
+                    
+                    search_requests.append((info_provider_prompt, f"search_{idx}", 0.5))
+                    search_index_mapping[f"search_{idx}"] = (idx, i)
+            
+            # Process all search requests concurrently
+            search_results = {}
+            if search_requests:
+                search_results = ask_llm_concurrent(
+                    search_requests, 
+                    max_workers=min(self.config.max_concurrent_llm_calls, len(search_requests))
+                )
+            
+            # Process all responses (including search results)
+            for i, idx in enumerate(active_indices):
+                response_text = responses_str[i]
+                action = actions[i]
+                content = contents[i]
+                
+                if action == 'answer':
+                    # Found answer, save complete response
+                    accumulated_responses[idx].append(responses_ids[i])
+                    active_mask[idx] = False
+                    if trajectory_turns[idx] == 0:
+                        trajectory_turns[idx] = step + 1
+                        
+                elif action == 'search':
+                    # Find the end of search tag
+                    search_end_pos = response_text.find('</search>') + len('</search>')
+                    response_up_to_search = response_text[:search_end_pos]
+                    
+                    # Tokenize response up to search
+                    response_up_to_search_ids = self.tokenizer(
+                        response_up_to_search,
+                        add_special_tokens=False,
+                        return_tensors='pt'
+                    )['input_ids'][0]
+                    
+                    # Save this part
+                    accumulated_responses[idx].append(response_up_to_search_ids)
+                    
+                    # Get concurrent search result
+                    search_result = search_results.get(f"search_{idx}")
+                    if search_result and search_result['success']:
+                        search_response = search_result['response']
+                    else:
+                        search_response = 'No information found.'
+                    
+                    pattern = r'<information>(.*?)</information>'
+                    information_str = re.search(pattern, search_response, re.DOTALL)
+                    if information_str:
+                        information_str = information_str.group(1).strip()
+                    else:
+                        information_str = 'No information found.'
+                    information_str = f"\n<information>\n{information_str}\n</information>\n"
+                    information_ids = self.tokenizer(
+                        information_str,
+                        add_special_tokens=False,
+                        return_tensors='pt'
+                    )['input_ids'][0]
+                    
+                    # Save information
+                    accumulated_responses[idx].append(information_ids)
+                    
+                    # Update accumulated assistant text with information
+                    accumulated_assistant_texts[idx] += information_str
+                    
+                    # Update generation context for next iteration
+                    self._update_generation_context(idx, accumulated_responses, original_prompt_ids, current_gen_batch)
+                    
+                else:
+                    # Invalid action - handle error case
+                    self._handle_invalid_action(idx, response_text, responses_ids[i], accumulated_responses, 
+                                             accumulated_assistant_texts, original_prompt_ids, current_gen_batch)
+            
             active_num_list.append(active_mask.sum().item())
-            valid_action_stats += torch.tensor(valid_action, dtype=torch.int)
-            valid_search_stats += torch.tensor(is_search, dtype=torch.int)
-
-
-            original_right_side = self._update_right_side(
-                original_right_side,
-                responses_ids,
-            )
-
-            meta_info['turns_stats'] = turns_stats.tolist()
-            meta_info['active_mask'] = active_mask.tolist()
-            meta_info['valid_action_stats'] = valid_action_stats.tolist()
-            meta_info['valid_search_stats'] = valid_search_stats.tolist()
-
-            # 记录剩余活跃样本的完成轮数
-            for idx in range(len(dones)):
-                if trajectory_turns[idx] == 0:
-                    trajectory_turns[idx] = step + 2
-
         
-        print("ACTIVE_TRAJ_NUM:", active_num_list)
-        print("Interaction Turns Statistics:")
-        for turns in range(1, self.config.max_turns + 2):
-            count = (torch.tensor(trajectory_turns) == turns).sum().item()
-            print(f"Finish at the {turns}-th turn: {count}")
+        # Create final response tensor
+        max_response_length = 4096
+        
+        final_responses = torch.full(
+            (batch_size, max_response_length), 
+            self.tokenizer.pad_token_id, 
+            dtype=torch.long
+        )
+        
+        for idx in range(batch_size):
+            if accumulated_responses[idx]:
+                full_response = torch.cat(accumulated_responses[idx], dim=0)
+                
+                # Truncate if necessary
+                if full_response.shape[0] > self.config.max_response_length:
+                    # Option 1: Keep the first part (including the answer)
+                    full_response = full_response[:self.config.max_response_length]
+                    
+                    # Option 2: Smart truncation - keep beginning and end
+                    # full_response = self._smart_truncate(full_response, self.config.max_response_length)
+                
+                final_responses[idx, :full_response.shape[0]] = full_response
+        
+        original_right_side = {'responses': final_responses}
+        with open('debug_init.txt', 'a') as f:
+            f.write(f'Length of Generation:Gen Size: {final_responses.shape} --- IGNORE ---\n')
+            f.write(f'Input Size: {initial_input_ids.shape} --- IGNORE ---\n')
+            f.write(f'Output Size: {final_responses.shape} --- IGNORE ---\n')
+            f.write(f'Meta Info: {meta_info} --- IGNORE ---\n')
+        output = self._compose_final_output(original_left_side, original_right_side, new_meta_info), trajectory_turns
+        return output
 
-        return self._compose_final_output(original_left_side, original_right_side, meta_info), trajectory_turns
+    def _update_generation_context(self, idx, accumulated_responses, original_prompt_ids, current_gen_batch):
+        """Helper method to update generation context after search."""
+        all_accumulated = torch.cat(accumulated_responses[idx], dim=0)
+        new_input_ids = torch.cat([original_prompt_ids[idx], all_accumulated], dim=0)
+        
+        # Ensure new_input_ids matches the expected size exactly
+        expected_size = current_gen_batch.batch['input_ids'][idx].shape[0]
+        
+        if new_input_ids.shape[0] > expected_size:
+            # Truncate from the left (keep most recent)
+            new_input_ids = new_input_ids[-expected_size:]
+        elif new_input_ids.shape[0] < expected_size:
+            # Pad on the left with pad_token_id
+            pad_length = expected_size - new_input_ids.shape[0]
+            padding = torch.full((pad_length,), self.tokenizer.pad_token_id, dtype=torch.long, device=new_input_ids.device)
+            new_input_ids = torch.cat([padding, new_input_ids], dim=0)
+        
+        # Update the generation batch
+        current_gen_batch.batch['input_ids'][idx] = new_input_ids
+        
+        # Update attention mask
+        new_attention_mask = torch.ones_like(new_input_ids)
+        if new_input_ids.shape[0] > len(all_accumulated) + original_prompt_ids[idx].shape[0]:
+            # We added padding at the beginning
+            pad_length = new_input_ids.shape[0] - (len(all_accumulated) + original_prompt_ids[idx].shape[0])
+            new_attention_mask[:pad_length] = 0
+        
+        current_gen_batch.batch['attention_mask'][idx] = new_attention_mask
+        current_gen_batch.batch['position_ids'][idx] = self.tensor_fn.create_position_ids(new_attention_mask.unsqueeze(0))[0]
+
+    def _handle_invalid_action(self, idx, response_text, response_ids, accumulated_responses, 
+                             accumulated_assistant_texts, original_prompt_ids, current_gen_batch):
+        """Helper method to handle invalid actions."""
+        error_str = '\nMy previous action is invalid. \
+If I want to search, I should put the query between <search> and </search>. \
+If I want to give the final answer, I should put the answer between <answer> and </answer>. Let me try again.\n'
+        
+        error_ids = self.tokenizer(
+            error_str,
+            add_special_tokens=False,
+            return_tensors='pt'
+        )['input_ids'][0]
+        
+        # Add original response and error
+        accumulated_responses[idx].append(response_ids)
+        accumulated_responses[idx].append(error_ids)
+        
+        # Update accumulated assistant text
+        accumulated_assistant_texts[idx] += response_text + error_str
+        
+        # Update generation context
+        self._update_generation_context(idx, accumulated_responses, original_prompt_ids, current_gen_batch)
 
     def _compose_final_output(self, left_side: Dict,
                             right_side: Dict,
@@ -469,11 +554,7 @@ class LLMGenerationManager:
             self.tensor_fn.create_attention_mask(left_side['input_ids']),
             self.tensor_fn.create_attention_mask(final_output['responses'])
         ], dim=1)
-        final_output['info_mask'] = torch.cat([
-            self.tensor_fn.create_attention_mask(left_side['input_ids']),
-            self.tensor_fn.create_attention_mask(final_output['responses_with_info_mask'])
-        ], dim=1)
-
+        
         final_output['position_ids'] = self.tensor_fn.create_position_ids(
             final_output['attention_mask']
         )
@@ -482,70 +563,6 @@ class LLMGenerationManager:
         final_output.meta_info.update(meta_info)
         
         return final_output
-
-    def execute_predictions(self, predictions, problem, ground_truth, search_mode, gt_threshold, active_mask=None, do_search=True) -> List[str]:
-        """
-        Execute predictions across multiple environments.
-        NOTE: the function is the actual `step` function in the environment
-        NOTE penalty_for_invalid is not included in observation shown to the LLM
-        
-        Args:
-            envs: List of environment instances
-            predictions: List of action predictions
-            pad_token: Token to use for padding
-            
-        Returns:
-            List of observation strings
-        """
-        cur_actions, contents = self.postprocess_predictions(predictions)
-        next_obs, dones, valid_action, is_search = [], [], [], []
-        
-        search_queries = [content for action, content in zip(cur_actions, contents) if action == 'search']
-        if do_search:
-            search_results = self.batch_search(search_queries, problem, ground_truth, search_mode, gt_threshold)
-            assert len(search_results) == sum([1 for action in cur_actions if action == 'search'])
-        else:
-            search_results = [''] * sum([1 for action in cur_actions if action == 'search'])
-
-        for i, (action, active) in enumerate(zip(cur_actions, active_mask)):
-            
-            if not active:
-                next_obs.append('')
-                dones.append(1)
-                valid_action.append(0)
-                is_search.append(0)
-            else:
-                if action == 'answer':
-                    next_obs.append('')
-                    dones.append(1)
-                    valid_action.append(1)
-                    is_search.append(0)
-                elif action == 'search':
-                    next_obs.append(f'\n\n<information>{search_results.pop(0).strip()}</information>\n\n')
-                    dones.append(0)
-                    valid_action.append(1)
-                    is_search.append(1)
-                else:
-                    next_obs.append(f'\nMy previous action is invalid. \
-If I want to search, I should put the query between <search> and </search>. \
-If I want to give the final answer, I should put the answer between <answer> and </answer>. Let me try again.\n')
-                    dones.append(0)
-                    valid_action.append(0)
-                    is_search.append(0)
-
-        assert len(search_results) == 0
-            
-        return next_obs, dones, valid_action, is_search
-
-    def dynamic_threshold(self, current_step, total_steps, current_turn=1, max_turns=5):
-        if current_step >= total_steps:
-            final_threshold = self.config.end_threshold
-        else:
-            progress = current_step / total_steps
-            exp_base = getattr(self.config, 'exp_base', 4)
-            exp_value = (math.pow(exp_base, progress) - 1) / (exp_base - 1)
-            final_threshold = self.config.start_threshold + exp_value * (self.config.end_threshold - self.config.start_threshold)
-        return final_threshold
 
     def postprocess_predictions(self, predictions: List[Any]) -> Tuple[List[int], List[bool]]:
         """
@@ -577,95 +594,3 @@ If I want to give the final answer, I should put the answer between <answer> and
             contents.append(content)
             
         return actions, contents
-
-    def batch_search(self, queries, problem, ground_truth, search_mode, gt_threshold) -> str:
-        """
-        Batchified search for queries.
-        Args:
-            queries: queries to call the search engine
-        Returns:
-            search results which is concatenated into a string
-        """
-        # results = self._batch_search(queries)
-        all_search_result = ['No information available' for _ in range(len(queries))]
-        with ThreadPoolExecutor(max_workers=10) as executor:
-            futures = [executor.submit(self._search, queries[index],  problem[index], ground_truth[index][0], search_mode, gt_threshold, index) for index in range(len(queries))]
-            for future in as_completed(futures):
-                try:
-                    result, index = future.result()
-                    all_search_result[index] = result
-                except Exception as e:
-                    continue
-
-        return all_search_result
-
-    def retrieve_from_wiki(self, ip, query, topk=5):
-        for _ in range(10):
-            try:
-                payload = {'query': query, 'top_k': topk}
-                response = requests.post(f'http://{ip}:6002/retrieve', json=payload)
-                # import pdb; pdb.set_trace()
-                doc_texts = '\n'.join([f"Doc {i + 1}: {doc['text']}" for i, doc in enumerate(response.json())])
-                return doc_texts
-
-            except Exception as e:
-                time.sleep(1)
-                print(e)
-                continue
-        return 'No information available'
-
-    def retrieve_from_google(self, query, topk, retry_attempt=3):
-        SER_API_KEY = os.environ.get("SER_API_KEY", None)
-        params = {
-            "engine": "google",
-            "q": query,
-            "api_key": SER_API_KEY,
-            "num": topk
-        }
-
-        for i in range(retry_attempt):
-            try:
-                search = serpapi.search(params)
-                search_result = search["organic_results"]
-
-                search_texts = []
-                for item in search_result:
-                    text_data = ''
-                    if 'title' in item:
-                        text_data += item['title']
-                    if 'snippet' in item:
-                        text_data += item['snippet']
-                    search_texts.append(text_data)
-
-                return '\n'.join([f"Doc {i + 1}: {doc}" for i, doc in enumerate(search_texts)])
-
-            except Exception as e:
-                print(f"Attempt {i + 1} failed: {e}")
-                if i < retry_attempt - 1:
-                    time.sleep(2)  # 等待2秒后重试
-                else:
-                    print("All retries failed.")
-                    return 'No information available'
-
-    def _search(self, query, problem, ground_truth, search_mode, gt_threshold, index):
-        if search_mode == 'google':
-            doc_texts = self.retrieve_from_google(query, self.config.topk)
-        if search_mode == 'wiki':
-            doc_texts = self.retrieve_from_wiki(self.config.retriever_ip, query, self.config.topk)
-        elif search_mode == 'simulate_sft':
-            doc_texts = search_simulate_sft(self.config.llm_ip, self.config.topk, self.config.temperature, query, problem, ground_truth, gt_threshold)
-        elif search_mode == 'simulate_prompt':
-            doc_texts = search_simulate_prompt(self.config.llm_ip, self.config.topk, self.config.temperature, query, problem, ground_truth, gt_threshold)
-        # print(doc_texts)
-        return doc_texts, index
-
-    def _passages2string(self, retrieval_result):
-        format_reference = ''
-        for idx, doc_item in enumerate(retrieval_result):
-            
-            content = doc_item['document']['contents']
-            title = content.split("\n")[0]
-            text = "\n".join(content.split("\n")[1:])
-            format_reference += f"Doc {idx+1}(Title: {title}) {text}\n"
-
-        return format_reference

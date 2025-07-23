@@ -1,0 +1,18 @@
+Using LocalLogger is deprecated. The constructor API will change
+[36m(autoscaler +17s)[0m Tip: use `ray status` to view detailed cluster status. To disable these messages, set RAY_SCHEDULER_EVENTS=0.
+[33m(autoscaler +17s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'GPU': 8.0, 'CPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +52s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'GPU': 8.0, 'CPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +1m27s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'CPU': 8.0, 'GPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +2m2s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'CPU': 8.0, 'GPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +2m37s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'CPU': 8.0, 'GPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +3m12s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'CPU': 8.0, 'GPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +3m47s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'CPU': 8.0, 'GPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +4m22s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'CPU': 8.0, 'GPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +4m57s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'GPU': 8.0, 'CPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +5m32s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'CPU': 8.0, 'GPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +6m7s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'CPU': 8.0, 'GPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +6m42s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'CPU': 8.0, 'GPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +7m17s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'GPU': 8.0, 'CPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +7m52s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'GPU': 8.0, 'CPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +8m27s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'GPU': 8.0, 'CPU': 8.0}). Add suitable node types to this cluster to resolve this issue.
+[33m(autoscaler +9m2s)[0m Error: No available node types can fulfill resource request defaultdict(<class 'float'>, {'CPU': 8.0, 'GPU': 8.0}). Add suitable node types to this cluster to resolve this issue.

@@ -1,0 +1,15 @@
+{"time":"2025-07-21T12:43:01.414411516Z","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/wandb/run-20250721_124301-ib76du6e/logs/debug-core.log"}
+{"time":"2025-07-21T12:43:02.037300544Z","level":"INFO","msg":"created new stream","id":"ib76du6e"}
+{"time":"2025-07-21T12:43:02.037364516Z","level":"INFO","msg":"stream: started","id":"ib76du6e"}
+{"time":"2025-07-21T12:43:02.03737658Z","level":"INFO","msg":"writer: Do: started","stream_id":"ib76du6e"}
+{"time":"2025-07-21T12:43:02.037407401Z","level":"INFO","msg":"sender: started","stream_id":"ib76du6e"}
+{"time":"2025-07-21T12:43:02.037387374Z","level":"INFO","msg":"handler: started","stream_id":"ib76du6e"}
+{"time":"2025-07-21T12:43:02.751417922Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-07-21T12:57:34.36204476Z","level":"INFO","msg":"stream: closing","id":"ib76du6e"}
+{"time":"2025-07-21T12:57:34.362095621Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-07-21T12:57:34.362129579Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-07-21T12:57:36.454654755Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-21T12:57:37.053389221Z","level":"INFO","msg":"handler: closed","stream_id":"ib76du6e"}
+{"time":"2025-07-21T12:57:37.05342686Z","level":"INFO","msg":"sender: closed","stream_id":"ib76du6e"}
+{"time":"2025-07-21T12:57:37.053424827Z","level":"INFO","msg":"writer: Close: closed","stream_id":"ib76du6e"}
+{"time":"2025-07-21T12:57:37.054299077Z","level":"INFO","msg":"stream: closed","id":"ib76du6e"}

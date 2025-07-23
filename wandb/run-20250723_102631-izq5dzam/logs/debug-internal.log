@@ -1,0 +1,8 @@
+{"time":"2025-07-23T10:26:31.296667077Z","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/wandb/run-20250723_102631-izq5dzam/logs/debug-core.log"}
+{"time":"2025-07-23T10:26:31.926657698Z","level":"INFO","msg":"created new stream","id":"izq5dzam"}
+{"time":"2025-07-23T10:26:31.926716697Z","level":"INFO","msg":"stream: started","id":"izq5dzam"}
+{"time":"2025-07-23T10:26:31.926733216Z","level":"INFO","msg":"writer: Do: started","stream_id":"izq5dzam"}
+{"time":"2025-07-23T10:26:31.926742428Z","level":"INFO","msg":"handler: started","stream_id":"izq5dzam"}
+{"time":"2025-07-23T10:26:31.926752161Z","level":"INFO","msg":"sender: started","stream_id":"izq5dzam"}
+{"time":"2025-07-23T10:26:32.486761853Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-07-23T10:37:43.476694098Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/hengzhou-ml/Rethink%20Search%20Scaling/izq5dzam/file_stream\": EOF"}

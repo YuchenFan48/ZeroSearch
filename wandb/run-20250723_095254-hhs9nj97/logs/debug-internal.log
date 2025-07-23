@@ -1,0 +1,7 @@
+{"time":"2025-07-23T09:52:54.367578843Z","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/wandb/run-20250723_095254-hhs9nj97/logs/debug-core.log"}
+{"time":"2025-07-23T09:52:54.987960642Z","level":"INFO","msg":"created new stream","id":"hhs9nj97"}
+{"time":"2025-07-23T09:52:54.988041401Z","level":"INFO","msg":"stream: started","id":"hhs9nj97"}
+{"time":"2025-07-23T09:52:54.988102384Z","level":"INFO","msg":"writer: Do: started","stream_id":"hhs9nj97"}
+{"time":"2025-07-23T09:52:54.988136906Z","level":"INFO","msg":"sender: started","stream_id":"hhs9nj97"}
+{"time":"2025-07-23T09:52:54.988116068Z","level":"INFO","msg":"handler: started","stream_id":"hhs9nj97"}
+{"time":"2025-07-23T09:52:55.665108297Z","level":"INFO","msg":"Starting system monitor"}

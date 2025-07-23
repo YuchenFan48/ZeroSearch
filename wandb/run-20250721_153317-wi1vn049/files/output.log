@@ -1,0 +1,487 @@
+Using LocalLogger is deprecated. The constructor API will change
+[36m(pid=7785)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=7785)[0m No module named 'vllm._version'
+[36m(pid=7785)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=7996)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=7996)[0m No module named 'vllm._version'
+[36m(pid=7996)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=7991)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=7991)[0m No module named 'vllm._version'
+[36m(pid=7991)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(WorkerDict pid=7996)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009
+[36m(WorkerDict pid=7996)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')
+[36m(WorkerDict pid=7996)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[36m(WorkerDict pid=7785)[0m Model config after override: LlamaConfig {
+[36m(WorkerDict pid=7785)[0m   "_name_or_path": "/fs-computility/mabasic/shared/models/Llama-3.2-3B-Instruct",
+[36m(WorkerDict pid=7785)[0m   "architectures": [
+[36m(WorkerDict pid=7785)[0m     "LlamaForCausalLM"
+[36m(WorkerDict pid=7785)[0m   ],
+[36m(WorkerDict pid=7785)[0m   "attention_bias": false,
+[36m(WorkerDict pid=7785)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=7785)[0m   "bos_token_id": 128000,
+[36m(WorkerDict pid=7785)[0m   "eos_token_id": 128009,
+[36m(WorkerDict pid=7785)[0m   "head_dim": 128,
+[36m(WorkerDict pid=7785)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=7785)[0m   "hidden_size": 3072,
+[36m(WorkerDict pid=7785)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=7785)[0m   "intermediate_size": 8192,
+[36m(WorkerDict pid=7785)[0m   "max_position_embeddings": 131072,
+[36m(WorkerDict pid=7785)[0m   "mlp_bias": false,
+[36m(WorkerDict pid=7785)[0m   "model_type": "llama",
+[36m(WorkerDict pid=7785)[0m   "num_attention_heads": 24,
+[36m(WorkerDict pid=7785)[0m   "num_hidden_layers": 28,
+[36m(WorkerDict pid=7785)[0m   "num_key_value_heads": 8,
+[36m(WorkerDict pid=7785)[0m   "pad_token_id": 128009,
+[36m(WorkerDict pid=7785)[0m   "pretraining_tp": 1,
+[36m(WorkerDict pid=7785)[0m   "rms_norm_eps": 1e-05,
+[36m(WorkerDict pid=7785)[0m   "rope_scaling": {
+[36m(WorkerDict pid=7785)[0m     "factor": 32.0,
+[36m(WorkerDict pid=7785)[0m     "high_freq_factor": 4.0,
+[36m(WorkerDict pid=7785)[0m     "low_freq_factor": 1.0,
+[36m(WorkerDict pid=7785)[0m     "original_max_position_embeddings": 8192,
+[36m(WorkerDict pid=7785)[0m     "rope_type": "llama3"
+[36m(WorkerDict pid=7785)[0m   },
+[36m(WorkerDict pid=7785)[0m   "rope_theta": 500000.0,
+[36m(WorkerDict pid=7785)[0m   "tie_word_embeddings": true,
+[36m(WorkerDict pid=7785)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=7785)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=7785)[0m   "use_cache": true,
+[36m(WorkerDict pid=7785)[0m   "vocab_size": 128256
+[36m(WorkerDict pid=7785)[0m }
+[36m(WorkerDict pid=7785)[0m
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  3.65it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  5.01it/s]
+[36m(WorkerDict pid=7785)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=7785)[0m LlamaForCausalLM contains 3.21B parameters
+[36m(WorkerDict pid=7785)[0m wrap_policy: functools.partial(<function _or_policy at 0x7eedeb42e940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7eedeb42e820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=7785)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=7785)[0m Model config after override: LlamaConfig {
+[36m(WorkerDict pid=7785)[0m   "_name_or_path": "/fs-computility/mabasic/shared/models/Llama-3.2-3B-Instruct",
+[36m(WorkerDict pid=7785)[0m   "architectures": [
+[36m(WorkerDict pid=7785)[0m     "LlamaForCausalLM"
+[36m(WorkerDict pid=7785)[0m   ],
+[36m(WorkerDict pid=7785)[0m   "attention_bias": false,
+[36m(WorkerDict pid=7785)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=7785)[0m   "bos_token_id": 128000,
+[36m(WorkerDict pid=7785)[0m   "eos_token_id": 128009,
+[36m(WorkerDict pid=7785)[0m   "head_dim": 128,
+[36m(WorkerDict pid=7785)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=7785)[0m   "hidden_size": 3072,
+[36m(WorkerDict pid=7785)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=7785)[0m   "intermediate_size": 8192,
+[36m(WorkerDict pid=7785)[0m   "max_position_embeddings": 131072,
+[36m(WorkerDict pid=7785)[0m   "mlp_bias": false,
+[36m(WorkerDict pid=7785)[0m   "model_type": "llama",
+[36m(WorkerDict pid=7785)[0m   "num_attention_heads": 24,
+[36m(WorkerDict pid=7785)[0m   "num_hidden_layers": 28,
+[36m(WorkerDict pid=7785)[0m   "num_key_value_heads": 8,
+[36m(WorkerDict pid=7785)[0m   "pad_token_id": 128009,
+[36m(WorkerDict pid=7785)[0m   "pretraining_tp": 1,
+[36m(WorkerDict pid=7785)[0m   "rms_norm_eps": 1e-05,
+[36m(WorkerDict pid=7785)[0m   "rope_scaling": {
+[36m(WorkerDict pid=7785)[0m     "factor": 32.0,
+[36m(WorkerDict pid=7785)[0m     "high_freq_factor": 4.0,
+[36m(WorkerDict pid=7785)[0m     "low_freq_factor": 1.0,
+[36m(WorkerDict pid=7785)[0m     "original_max_position_embeddings": 8192,
+[36m(WorkerDict pid=7785)[0m     "rope_type": "llama3"
+[36m(WorkerDict pid=7785)[0m   },
+[36m(WorkerDict pid=7785)[0m   "rope_theta": 500000.0,
+[36m(WorkerDict pid=7785)[0m   "tie_word_embeddings": true,
+[36m(WorkerDict pid=7785)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=7785)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=7785)[0m   "use_cache": true,
+[36m(WorkerDict pid=7785)[0m   "vocab_size": 128256
+[36m(WorkerDict pid=7785)[0m }
+[36m(WorkerDict pid=7785)[0m
+[36m(WorkerDict pid=7994)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f75f2506940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f75f2506820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(WorkerDict pid=7785)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in LlamaForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(pid=7994)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:[32m [repeated 5x across cluster][0m
+[36m(pid=7994)[0m No module named 'vllm._version'[32m [repeated 5x across cluster][0m
+[36m(pid=7994)[0m   from vllm.version import __version__ as VLLM_VERSION[32m [repeated 5x across cluster][0m
+[36m(WorkerDict pid=7785)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009[32m [repeated 8x across cluster][0m
+[36m(WorkerDict pid=7785)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')[32m [repeated 8x across cluster][0m
+[36m(WorkerDict pid=7993)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.[32m [repeated 7x across cluster][0m
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][32m [repeated 7x across cluster][0m
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  5.94it/s][32m [repeated 7x across cluster][0m
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.39it/s][32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7994)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in LlamaForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7994)[0m /fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/utils/tokenizer.py:29: UserWarning: tokenizer.pad_token_id is None. Now set to 128009[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7994)[0m   warnings.warn(f'tokenizer.pad_token_id is None. Now set to {tokenizer.eos_token_id}')[32m [repeated 7x across cluster][0m
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][32m [repeated 8x across cluster][0m
+Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.81s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.82s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.83s/it]
+[36m(WorkerDict pid=7785)[0m LlamaForCausalLM contains 3.21B parameters
+[36m(WorkerDict pid=7994)[0m Actor use_remove_padding=True[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7785)[0m wrap_policy: functools.partial(<function _or_policy at 0x7eedeb42e940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7eedeb42e820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=7996)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f37299c5940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f37299c5820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])
+[36m(WorkerDict pid=7990)[0m Total steps: 13250, num_warmup_steps: 265
+[36m(WorkerDict pid=7785)[0m Before building vllm rollout, memory allocated (GB): 1.4960813522338867, memory reserved (GB): 1.65234375
+[36m(WorkerDict pid=7994)[0m WARNING 07-21 15:33:53 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(WorkerDict pid=7994)[0m Actor use_remove_padding=True[32m [repeated 8x across cluster][0m
+[36m(WorkerDict pid=7994)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f75f2506940>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f75f2506820>, transformer_layer_cls={<class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>})])[32m [repeated 6x across cluster][0m
+[36m(WorkerDict pid=7994)[0m local rank 0
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_1
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_2
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_3
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] ibvwrap.c:66 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] p2p_plugin.c:233 NCCL WARN NET/IB : Unable to open device mlx5_4
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_1
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_2
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_3
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] misc/ibvwrap.cc:113 NCCL WARN Call to ibv_open_device failed
+[36m(WorkerDict pid=7995)[0m
+[36m(WorkerDict pid=7995)[0m t-20250721233235-k55xc-worker-0:7995:8739 [0] transport/net_ib.cc:219 NCCL WARN NET/IB : Unable to open device mlx5_4
+[36m(WorkerDict pid=7995)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=7991)[0m Total steps: 13250, num_warmup_steps: 265[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7992)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7991)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7996)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7990)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7993)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7994)[0m
+[36m(WorkerDict pid=7785)[0m before init cache memory allocated: 8.074507264GB, reserved: 8.151629824GB
+[36m(WorkerDict pid=7785)[0m after init cache memory allocated: 60.10065408GB, reserved: 60.17777664GB
+[36m(WorkerDict pid=7785)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 4096, 'detokenize': False, 'temperature': 1.0, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(WorkerDict pid=7785)[0m After building vllm rollout, memory allocated (GB): 49.98839473724365, memory reserved (GB): 56.044921875
+[36m(WorkerDict pid=7785)[0m After building sharding manager, memory allocated (GB): 49.98839473724365, memory reserved (GB): 56.044921875
+[36m(WorkerDict pid=7996)[0m WARNING 07-21 15:33:53 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7996)[0m local rank 0[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=7785)[0m /root/miniconda3/envs/zerosearch/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=7785)[0m   warnings.warn(
+Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.11s/it][32m [repeated 6x across cluster][0m
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.98s/it][32m [repeated 7x across cluster][0m
+Training:   0%|          | 0/13250 [00:00<?, ?it/s]
+epoch 0, step 1
+[2025-07-21 15:35:25,628][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:25,775][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:25,801][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:25,888][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:25,979][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:26,022][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:26,215][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:26,346][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:26,372][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:26,389][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:26,736][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:26,798][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:26,835][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:26,893][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:27,015][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:27,303][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:27,320][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:27,346][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:27,601][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:27,776][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:28,093][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:28,198][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:28,207][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:28,267][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:28,621][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:28,629][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:28,647][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:28,715][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:28,857][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:29,253][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:29,473][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:30,032][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:30,193][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:30,353][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:30,684][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:31,458][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:31,601][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:31,710][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:31,960][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:32,005][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:32,049][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:32,062][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:32,323][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:32,545][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:32,562][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:32,820][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:33,148][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:33,353][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:33,640][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:33,687][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:33,813][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:33,817][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:34,532][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:34,542][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:34,568][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:34,713][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:34,815][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:34,897][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:35,128][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:35,292][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:35,584][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:35,883][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:35,900][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:36,166][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:36,202][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:36,229][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:36,502][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:36,600][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:36,617][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:36,772][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:37,128][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:37,146][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:37,231][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:37,257][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:37,275][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:37,683][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:37,846][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:37,856][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:37,905][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:37,916][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:38,110][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:38,110][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:38,135][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:38,200][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:38,213][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:38,388][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:38,526][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:38,605][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:38,805][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:39,546][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:39,996][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:40,005][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:40,022][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:40,114][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:40,166][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:40,202][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:40,365][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:40,399][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:40,543][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:40,551][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:41,140][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:41,468][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:41,756][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:42,243][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:35:46,002][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:14,783][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:14,829][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:14,847][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:14,911][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:14,949][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:14,952][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:14,974][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:14,992][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:15,109][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:15,135][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:15,313][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:15,331][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:15,462][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:15,764][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:15,849][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:15,885][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:15,962][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,077][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,121][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,188][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,206][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,257][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,329][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,480][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,578][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,605][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,622][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:16,645][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:17,096][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:17,220][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:17,291][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:17,513][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:17,576][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:17,593][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:17,966][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:18,011][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:18,282][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:18,721][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:18,746][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:18,772][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:18,974][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:19,827][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:23,241][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:24,899][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:37:25,703][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,043][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,043][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,052][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,061][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,069][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,309][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,345][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,447][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,465][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,611][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,612][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,629][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,707][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,796][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,832][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,841][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:57,975][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:58,230][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:58,545][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:58,591][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:58,594][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:58,899][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:58,968][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:59,022][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:59,269][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:59,298][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:59,515][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:59,677][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:38:59,928][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:39:00,697][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:39:01,486][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:39:06,384][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:30,763][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:30,803][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:30,846][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:30,856][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:30,963][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:31,050][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:31,442][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:31,467][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:31,502][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:32,697][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:33,168][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:33,478][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:40:33,790][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:41:56,626][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:41:56,769][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:41:56,770][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:41:56,770][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:41:56,771][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:41:56,819][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:41:57,099][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:41:57,638][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:41:58,909][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:41:58,926][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-07-21 15:42:05,017][httpx][INFO] - HTTP Request: POST http://172.30.52.145:8001/v1/chat/completions "HTTP/1.1 200 OK"
+{'micro_batch_size': 16, 'max_token_len': 16384, 'use_dynamic_bsz': False, 'temperature': 1.0}
+Error executing job with overrides: ['algorithm.adv_estimator=grpo', "data.train_files=['/fs-computility/mabasic/fanyuchen/Rethink-Search_tmp/verl_temp/ZeroSearch_dataset/train.parquet']", "data.val_files=['/fs-computility/mabasic/fanyuchen/Rethink-Search_tmp/verl_temp/ZeroSearch_dataset/test.parquet']", 'data.train_batch_size=64', 'data.max_prompt_length=1024', 'data.max_response_length=4096', 'actor_rollout_ref.model.path=/fs-computility/mabasic/shared/models/Llama-3.2-3B-Instruct', 'actor_rollout_ref.actor.optim.lr=1e-6', 'actor_rollout_ref.model.use_remove_padding=True', 'actor_rollout_ref.actor.ppo_mini_batch_size=256', 'actor_rollout_ref.actor.ppo_micro_batch_size=128', 'actor_rollout_ref.rollout.log_prob_micro_batch_size=128', 'actor_rollout_ref.actor.use_kl_loss=True', 'actor_rollout_ref.actor.kl_loss_coef=0.001', 'actor_rollout_ref.actor.kl_loss_type=low_var_kl', 'actor_rollout_ref.actor.entropy_coeff=0', 'actor_rollout_ref.model.enable_gradient_checkpointing=True', 'actor_rollout_ref.actor.fsdp_config.param_offload=True', 'actor_rollout_ref.actor.optim.lr_warmup_steps_ratio=0.02', 'actor_rollout_ref.actor.fsdp_config.optimizer_offload=True', 'actor_rollout_ref.ref.log_prob_micro_batch_size=128', 'actor_rollout_ref.rollout.tensor_model_parallel_size=1', 'actor_rollout_ref.rollout.name=vllm', 'actor_rollout_ref.rollout.gpu_memory_utilization=0.7', 'actor_rollout_ref.rollout.n_agent=2', 'actor_rollout_ref.ref.fsdp_config.param_offload=True', 'trainer.val_before_train=False', 'trainer.critic_warmup=0', 'trainer.logger=[console,wandb]', 'trainer.project_name=Rethink Search Scaling', 'trainer.experiment_name=llama_3.1_8b_inst_grpo_init', 'trainer.n_gpus_per_node=8', 'trainer.val_before_train=False', 'trainer.nnodes=1', 'trainer.save_freq=10000', 'trainer.test_freq=16', 'trainer.total_epochs=5']
+Traceback (most recent call last):
+  File "/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/trainer/main_ppo.py", line 156, in main
+    main_task(config)
+  File "/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/trainer/main_ppo.py", line 229, in main_task
+    trainer.fit()
+  File "/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/trainer/ppo/ray_trainer.py", line 829, in fit
+    reward_tensor = self.reward_fn(batch)
+  File "/fs-computility/mabasic/fanyuchen/Rethink-Search/ZeroSearch/verl/trainer/main_ppo.py", line 73, in __call__
+    format_reward = format_score_fn(solution_str=sequences_str)
+TypeError: format_reward() got an unexpected keyword argument 'solution_str'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
